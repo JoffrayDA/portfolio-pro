@@ -21,14 +21,16 @@ export interface ProjectOverlayData {
   category: string;
   description: string;
   tools: string[];
-  bgColor: string;         // dark bg for overlay, e.g. "#0D0C0B"
-  accentColor: string;     // accent line/text color
-  bgImage?: string;        // optional parallax bg image
+  bgColor: string;
+  accentColor: string;
+  bgImage?: string;
   screens: ScreenPanel[];
   stats: { value: string; label: string }[];
   githubUrl?: string;
-  confidential?: boolean;  // if true, show confidential notice instead of screens
+  confidential?: boolean;
 }
+
+const PANEL_PADDING = "clamp(48px, 8vw, 120px)";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Sub-panels
@@ -36,22 +38,25 @@ export interface ProjectOverlayData {
 
 function PanelIntro({ data }: { data: ProjectOverlayData }) {
   return (
-    <div style={{ width: "100vw", height: "100vh", flexShrink: 0 }}
-      className="relative flex items-center px-12 md:px-24">
-      <div className="max-w-xl">
+    <div style={{
+      width: "100vw", height: "100vh", flexShrink: 0,
+      display: "flex", alignItems: "center",
+      paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
+    }}>
+      <div style={{ maxWidth: "560px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.3em",
+          fontSize: "12px",
+          letterSpacing: "0.28em",
           textTransform: "uppercase",
           color: data.accentColor,
-          marginBottom: "24px",
+          marginBottom: "28px",
         }}>
-          01 — {data.category}
+          01 · {data.category}
         </p>
         <h2 style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "clamp(48px, 7vw, 96px)",
+          fontSize: "clamp(52px, 8vw, 110px)",
           fontWeight: 300,
           lineHeight: 1.0,
           color: "#FAF7F2",
@@ -66,9 +71,9 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
         <p style={{
           fontFamily: "var(--font-sans)",
           fontSize: "14px",
-          lineHeight: 1.75,
+          lineHeight: 1.8,
           color: "rgba(250,247,242,0.5)",
-          maxWidth: "440px",
+          maxWidth: "460px",
           marginBottom: "32px",
         }}>
           {data.description}
@@ -77,12 +82,12 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
           {data.tools.map(tool => (
             <span key={tool} style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "9px",
+              fontSize: "10px",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               color: "rgba(250,247,242,0.4)",
               border: `1px solid ${data.accentColor}55`,
-              padding: "4px 10px",
+              padding: "4px 12px",
             }}>
               {tool}
             </span>
@@ -95,18 +100,21 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
 
 function PanelScreen({ panel, accentColor }: { panel: ScreenPanel; accentColor: string }) {
   return (
-    <div style={{ width: "100vw", height: "100vh", flexShrink: 0 }}
-      className="relative flex items-center px-12 md:px-24">
-      <div className="w-full max-w-5xl">
+    <div style={{
+      width: "100vw", height: "100vh", flexShrink: 0,
+      display: "flex", alignItems: "center",
+      paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
+    }}>
+      <div style={{ width: "100%", maxWidth: "1100px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.3em",
+          fontSize: "13px",
+          letterSpacing: "0.25em",
           textTransform: "uppercase",
           color: accentColor,
           marginBottom: "24px",
         }}>
-          {panel.n} — {panel.title}
+          {panel.n} · {panel.title}
         </p>
         <div style={{
           width: "100%",
@@ -125,8 +133,8 @@ function PanelScreen({ panel, accentColor }: { panel: ScreenPanel; accentColor: 
           fontSize: "12px",
           color: "rgba(250,247,242,0.3)",
           marginTop: "16px",
-          maxWidth: "520px",
-          lineHeight: 1.6,
+          maxWidth: "540px",
+          lineHeight: 1.7,
         }}>
           {panel.description}
         </p>
@@ -137,18 +145,21 @@ function PanelScreen({ panel, accentColor }: { panel: ScreenPanel; accentColor: 
 
 function PanelConfidential({ data }: { data: ProjectOverlayData }) {
   return (
-    <div style={{ width: "100vw", height: "100vh", flexShrink: 0 }}
-      className="relative flex items-center px-12 md:px-24">
-      <div className="max-w-2xl">
+    <div style={{
+      width: "100vw", height: "100vh", flexShrink: 0,
+      display: "flex", alignItems: "center",
+      paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
+    }}>
+      <div style={{ maxWidth: "640px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.3em",
+          fontSize: "13px",
+          letterSpacing: "0.25em",
           textTransform: "uppercase",
           color: data.accentColor,
           marginBottom: "32px",
         }}>
-          02 — Dashboard
+          02 · Dashboard
         </p>
         <div style={{
           border: `1px solid ${data.accentColor}44`,
@@ -157,7 +168,7 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
         }}>
           <p style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "9px",
+            fontSize: "10px",
             letterSpacing: "0.25em",
             textTransform: "uppercase",
             color: data.accentColor,
@@ -167,19 +178,19 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
           </p>
           <p style={{
             fontFamily: "var(--font-serif)",
-            fontSize: "clamp(20px, 2.5vw, 32px)",
+            fontSize: "clamp(22px, 2.5vw, 34px)",
             fontWeight: 300,
             color: "#FAF7F2",
             lineHeight: 1.3,
             marginBottom: "24px",
           }}>
-            Mission réelle — données sensibles non divulgables.
+            Mission réelle. Données sensibles non divulgables.
           </p>
           <p style={{
             fontFamily: "var(--font-sans)",
             fontSize: "13px",
             color: "rgba(250,247,242,0.45)",
-            lineHeight: 1.75,
+            lineHeight: 1.8,
           }}>
             Ce dashboard exploite des données propriétaires d'Edgard & Cooper sur Amazon EU :
             disponibilité produit, variations de prix et ownership Buy Box.
@@ -193,7 +204,7 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
           letterSpacing: "0.2em",
           color: "rgba(250,247,242,0.2)",
         }}>
-          Disponible sur demande · contact@joffray.com
+          Disponible sur demande · joffray.dealberto@gmail.com
         </p>
       </div>
     </div>
@@ -206,18 +217,21 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
     : String(data.screens.length + 2).padStart(2, "0");
 
   return (
-    <div style={{ width: "100vw", height: "100vh", flexShrink: 0 }}
-      className="relative flex items-center px-12 md:px-24">
-      <div className="w-full max-w-3xl">
+    <div style={{
+      width: "100vw", height: "100vh", flexShrink: 0,
+      display: "flex", alignItems: "center",
+      paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
+    }}>
+      <div style={{ width: "100%", maxWidth: "860px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.3em",
+          fontSize: "13px",
+          letterSpacing: "0.25em",
           textTransform: "uppercase",
           color: data.accentColor,
           marginBottom: "48px",
         }}>
-          {lastN} — Chiffres clés
+          {lastN} · Chiffres clés
         </p>
         <div style={{
           display: "grid",
@@ -227,10 +241,10 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
           marginBottom: "64px",
         }}>
           {data.stats.map(s => (
-            <div key={s.label} style={{ background: "#0D0C0B", padding: "32px 24px" }}>
+            <div key={s.label} style={{ background: data.bgColor, padding: "36px 28px" }}>
               <p style={{
                 fontFamily: "var(--font-serif)",
-                fontSize: "clamp(28px, 3.5vw, 48px)",
+                fontSize: "clamp(32px, 4vw, 52px)",
                 fontWeight: 300,
                 color: "#FAF7F2",
                 marginBottom: "8px",
@@ -243,7 +257,7 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 color: "rgba(250,247,242,0.3)",
-                lineHeight: 1.4,
+                lineHeight: 1.5,
               }}>
                 {s.label}
               </p>
@@ -257,17 +271,17 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
             rel="noopener noreferrer"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "10px",
+              fontSize: "11px",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: data.accentColor,
               border: `1px solid ${data.accentColor}66`,
-              padding: "10px 20px",
+              padding: "12px 24px",
               textDecoration: "none",
               display: "inline-block",
             }}
           >
-            → Voir sur GitHub
+            Voir sur GitHub
           </a>
         )}
       </div>
@@ -285,26 +299,23 @@ interface Props {
 }
 
 export default function ProjectOverlay({ data, onClose }: Props) {
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const trackRef   = useRef<HTMLDivElement>(null);
+  const overlayRef  = useRef<HTMLDivElement>(null);
+  const trackRef    = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
-  const bgRef      = useRef<HTMLDivElement>(null);
+  const bgRef       = useRef<HTMLDivElement>(null);
 
   const currentX = useRef(0);
   const targetX  = useRef(0);
 
-  // Fade in
   useEffect(() => {
     gsap.fromTo(overlayRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 0.45, ease: "power2.out" }
     );
-    // lock body scroll
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  // Horizontal scroll engine
   useEffect(() => {
     const track = trackRef.current;
     const prog  = progressRef.current;
@@ -313,8 +324,8 @@ export default function ProjectOverlay({ data, onClose }: Props) {
 
     const getMaxX = () => -(track.scrollWidth - window.innerWidth);
 
-    const BG_START = data.bgImage ? 15 : 0;
-    const BG_END   = data.bgImage ? -15 : 0;
+    const BG_START = 15;
+    const BG_END   = -15;
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
@@ -371,7 +382,7 @@ export default function ProjectOverlay({ data, onClose }: Props) {
         overflow: "hidden",
       }}
     >
-      {/* Parallax background image */}
+      {/* Parallax bg */}
       {data.bgImage && (
         <div
           ref={bgRef}
@@ -381,21 +392,21 @@ export default function ProjectOverlay({ data, onClose }: Props) {
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "grayscale(100%)",
-            opacity: 0.15,
+            opacity: 0.35,
             willChange: "transform",
             transform: "translateX(15%)",
           }}
         />
       )}
 
-      {/* Gradient overlay for readability */}
+      {/* Gradient */}
       <div style={{
         position: "absolute", inset: 0,
-        background: `linear-gradient(to right, ${data.bgColor}EE 0%, ${data.bgColor}88 50%, ${data.bgColor}EE 100%)`,
+        background: `linear-gradient(to right, ${data.bgColor}F0 0%, ${data.bgColor}70 50%, ${data.bgColor}F0 100%)`,
         pointerEvents: "none",
       }} />
 
-      {/* Back button */}
+      {/* Back */}
       <button
         onClick={handleClose}
         style={{
@@ -408,6 +419,7 @@ export default function ProjectOverlay({ data, onClose }: Props) {
           background: "none",
           border: "none",
           cursor: "pointer",
+          transition: "color 0.2s",
         }}
         onMouseEnter={e => (e.currentTarget.style.color = data.accentColor)}
         onMouseLeave={e => (e.currentTarget.style.color = "rgba(250,247,242,0.35)")}
@@ -427,10 +439,9 @@ export default function ProjectOverlay({ data, onClose }: Props) {
         scroll →
       </div>
 
-      {/* Panels track */}
+      {/* Track */}
       <div ref={trackRef} style={{ display: "flex", height: "100%", willChange: "transform" }}>
         <PanelIntro data={data} />
-
         {data.confidential ? (
           <PanelConfidential data={data} />
         ) : (
@@ -438,7 +449,6 @@ export default function ProjectOverlay({ data, onClose }: Props) {
             <PanelScreen key={panel.n} panel={panel} accentColor={data.accentColor} />
           ))
         )}
-
         <PanelStats data={data} />
       </div>
 

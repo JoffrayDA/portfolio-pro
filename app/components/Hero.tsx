@@ -98,7 +98,7 @@ export default function Hero() {
           marginBottom: "48px",
         }}
       >
-        Profil hybride Business · Data · IA — ce que j'apprends le soir, je le déploie le lendemain.
+        Profil hybride Business · Data · IA. Ce que j'apprends le soir, je le déploie le lendemain.
       </p>
 
       {/* CTA */}
