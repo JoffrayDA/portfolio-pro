@@ -138,6 +138,46 @@ export default function Hero() {
         </a>
       </div>
 
+      {/* Stats */}
+      <div
+        style={{
+          display: "flex",
+          gap: "48px",
+          marginTop: "64px",
+          paddingTop: "40px",
+          borderTop: "1px solid var(--border)",
+          flexWrap: "wrap",
+        }}
+      >
+        {[
+          { value: "13,7M€", label: "Canal Amazon géré" },
+          { value: "+26%",   label: "Croissance en 1 an" },
+          { value: "750+",   label: "SKUs analysés" },
+          { value: "6",      label: "Marchés européens" },
+        ].map(s => (
+          <div key={s.label}>
+            <p style={{
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(20px, 2.2vw, 28px)",
+              fontWeight: 300,
+              color: "var(--fg)",
+              marginBottom: "4px",
+            }}>
+              {s.value}
+            </p>
+            <p style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "9px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+            }}>
+              {s.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
       {/* Scroll hint */}
       <div
         style={{
