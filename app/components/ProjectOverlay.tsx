@@ -384,19 +384,28 @@ export default function ProjectOverlay({ data, onClose }: Props) {
     >
       {/* Parallax bg */}
       {data.bgImage && (
-        <div
-          ref={bgRef}
-          style={{
+        <>
+          <div
+            ref={bgRef}
+            style={{
+              position: "absolute", inset: 0,
+              backgroundImage: `url('${data.bgImage}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "grayscale(100%) sepia(40%)",
+              opacity: 0.38,
+              willChange: "transform",
+              transform: "translateX(15%)",
+            }}
+          />
+          {/* Warm tint overlay — ties Kobe to the beige palette */}
+          <div style={{
             position: "absolute", inset: 0,
-            backgroundImage: `url('${data.bgImage}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "grayscale(100%)",
-            opacity: 0.35,
-            willChange: "transform",
-            transform: "translateX(15%)",
-          }}
-        />
+            background: "rgba(107, 31, 31, 0.12)",
+            mixBlendMode: "screen",
+            pointerEvents: "none",
+          }} />
+        </>
       )}
 
       {/* Gradient */}
