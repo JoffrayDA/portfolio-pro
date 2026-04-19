@@ -23,13 +23,13 @@ const projects: ProjectOverlayData[] = [
         n: "02",
         title: "Vue Générale",
         src: "/ibm-01-vue-generale.png",
-        description: "Vue d'ensemble — 1 470 employés, taux d'attrition global de 16,12%, répartition par âge et par département.",
+        description: "Vue d'ensemble : 1 470 employés, taux d'attrition global de 16,12%, répartition par âge et par département.",
       },
       {
         n: "03",
         title: "Profil & Département",
         src: "/ibm-02-profil-dept.png",
-        description: "Analyse croisée par poste et ancienneté — les Sales Representatives affichent le taux d'attrition le plus élevé (39%).",
+        description: "Analyse croisée par poste et ancienneté. Les Sales Representatives affichent le taux d'attrition le plus élevé (39%).",
       },
       {
         n: "04",
@@ -41,7 +41,7 @@ const projects: ProjectOverlayData[] = [
         n: "05",
         title: "Coût & Impact Financier",
         src: "/ibm-04-cout-impact.png",
-        description: "Estimation du coût total des départs à 7M€ — répartition par département et corrélation avec le niveau de salaire.",
+        description: "Estimation du coût total des départs à 7M€. Répartition par département et corrélation avec le niveau de salaire.",
       },
     ],
     stats: [
@@ -57,7 +57,7 @@ const projects: ProjectOverlayData[] = [
     subtitle: "Kobe Bryant Career Stats",
     category: "Dashboard Power BI",
     description:
-      "Analyse complète de la carrière de Kobe Bryant — 20 saisons, 1 346 matchs, 5 titres NBA. Un dashboard Power BI construit de A à Z, des données brutes aux insights visuels.",
+      "Analyse complète de la carrière de Kobe Bryant : 20 saisons, 1 346 matchs, 5 titres NBA. Un dashboard Power BI construit de A à Z, des données brutes aux insights visuels.",
     tools: ["Power BI", "DAX", "Power Query", "NBA API"],
     bgColor: "#0F0D0B",
     accentColor: "#6B1F1F",
@@ -67,7 +67,7 @@ const projects: ProjectOverlayData[] = [
         n: "02",
         title: "Kobe",
         src: "/kobe-01-intro.png",
-        description: "Vue d'ensemble du rapport — navigation entre les chapitres de la carrière du Mamba.",
+        description: "Vue d'ensemble du rapport : navigation entre les chapitres de la carrière du Mamba.",
       },
       {
         n: "03",
@@ -336,17 +336,17 @@ export default function Projects() {
         style={{ padding: "120px 0 0" }}
       >
         {/* Section label */}
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent)",
+        <h2 style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "clamp(36px, 5vw, 64px)",
+          fontWeight: 300,
+          color: "var(--fg)",
+          lineHeight: 1.05,
           marginBottom: "64px",
           padding: "0 clamp(24px, 8vw, 120px)",
         }}>
           Projets
-        </p>
+        </h2>
 
         {/* Cards */}
         <div>

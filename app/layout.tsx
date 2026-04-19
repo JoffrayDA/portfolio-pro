@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Joffray DeAlberto — Business Analyst · Data",
+  title: "Joffray DeAlberto · Business Analyst · Data",
   description: "Portfolio de Joffray DeAlberto, Business Analyst & Data. Cadrage, livrables BA, dashboards Power BI.",
 };
 

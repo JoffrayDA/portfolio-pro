@@ -101,15 +101,15 @@ export default function Skills() {
         gap: "24px",
         marginBottom: "64px",
       }}>
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent)",
+        <h2 style={{
+          fontFamily: "var(--font-serif)",
+          fontSize: "clamp(36px, 5vw, 64px)",
+          fontWeight: 300,
+          color: "var(--fg)",
+          lineHeight: 1.05,
         }}>
           Outils & Langues
-        </p>
+        </h2>
 
         <div style={{ display: "flex", gap: "24px" }}>
           {languages.map(({ name, level }) => (

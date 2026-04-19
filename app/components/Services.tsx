@@ -111,18 +111,16 @@ export default function Services() {
         borderBottom: "1px solid var(--border)",
       }}
     >
-      <p
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: "var(--accent)",
-          marginBottom: "64px",
-        }}
-      >
+      <h2 style={{
+        fontFamily: "var(--font-serif)",
+        fontSize: "clamp(36px, 5vw, 64px)",
+        fontWeight: 300,
+        color: "var(--fg)",
+        lineHeight: 1.05,
+        marginBottom: "64px",
+      }}>
         Ce que j'apporte
-      </p>
+      </h2>
 
       <div
         style={{

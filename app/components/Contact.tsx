@@ -24,8 +24,8 @@ export default function Contact() {
       <p
         style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.28em",
+          fontSize: "13px",
+          letterSpacing: "0.2em",
           textTransform: "uppercase",
           color: "var(--accent)",
           marginBottom: "48px",
@@ -68,9 +68,9 @@ export default function Contact() {
               marginBottom: "48px",
             }}
           >
-            En recherche d'un CDI Business Analyst pour septembre 2026.
-            E-commerce, retail, grande entreprise — si le poste est stimulant,
-            je suis partant. Disponible pour un échange ou une candidature.
+            En recherche d'un CDI en tant que Business Analyst pour septembre 2026.
+            Si le poste est stimulant, je suis partant.
+            Disponible pour un échange ou une candidature.
           </p>
 
           {/* Dispo badge */}
@@ -102,7 +102,7 @@ export default function Contact() {
                 opacity: 0.7,
               }}
             >
-              Disponible — CDI à partir de sept. 2026
+              Disponible · CDI sept. 2026
             </span>
           </div>
         </div>

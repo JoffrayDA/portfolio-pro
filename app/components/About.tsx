@@ -9,14 +9,14 @@ const experiences = [
   {
     period: "Avr. – Août 2024",
     company: "AMD Blue",
-    role: "Business Developer — Services & conseil Data",
+    role: "Business Developer · Services & conseil Data",
     highlight:
       "Prospection Grands Comptes, études de marché, plans de prospection Data.",
   },
   {
     period: "2023 – 2024",
     company: "Pluraskills",
-    role: "Business Developer — Cabinet conseil IT",
+    role: "Business Developer · Cabinet conseil IT",
     highlight: "Prospection, gestion RDV, contribution au recrutement IT.",
   },
   {
@@ -39,8 +39,8 @@ export default function About() {
       <p
         style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          letterSpacing: "0.28em",
+          fontSize: "13px",
+          letterSpacing: "0.2em",
           textTransform: "uppercase",
           color: "var(--accent)",
           marginBottom: "64px",
@@ -85,7 +85,7 @@ export default function About() {
               marginBottom: "24px",
             }}
           >
-            6 ans sur le terrain — vente B2B grands comptes, business development,
+            6 ans sur le terrain : vente B2B grands comptes, business development,
             e-commerce. J'ai appris à comprendre vite ce que veulent les clients,
             à prioriser ce qui génère de la valeur, et à livrer sans attendre.
           </p>
@@ -102,7 +102,7 @@ export default function About() {
           >
             Aujourd'hui en MSc Business & Data, je pilote un canal Amazon à 13,7M€
             en alternance chez Edgard & Cooper. Je fais le pont entre le métier
-            et la data : cadrage, analyse, outils — et je livre ce qui peut
+            et la data : cadrage, analyse, outils. Je livre ce qui peut
             être utilisé le lendemain matin en réunion.
           </p>
 
@@ -143,7 +143,7 @@ export default function About() {
                 color: "var(--muted)",
               }}
             >
-              Eugenia School — 2024 / 2026
+              Eugenia School · 2024 / 2026
             </p>
           </div>
         </div>
