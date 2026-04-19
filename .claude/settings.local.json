@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(taskkill /PID 24492 /F)",
+      "Bash(taskkill /PID 18040 /F)",
+      "Bash(cmd.exe /c \"taskkill /PID 24492 /F & taskkill /PID 18040 /F\")",
+      "Bash(cmd.exe /c \"taskkill /IM node.exe /F 2>nul & echo done\")",
+      "Bash(cmd.exe /c \"taskkill /F /IM node.exe\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(npm run:*)",
+      "Bash(cmd.exe /c \"for /f \\\\\"tokens=5\\\\\" %a in \\('netstat -aon ^| findstr :3000'\\) do taskkill /PID %a /F\" 2>&1)",
+      "Bash(cmd.exe /c \"netstat -aon | findstr :3000 && netstat -aon | findstr :3001\")",
+      "Bash(cmd.exe /c \"tasklist /FI \\\\\"PID eq 18040\\\\\" && tasklist /FI \\\\\"PID eq 24492\\\\\"\")",
+      "Bash(cmd.exe /c \"del /F \\\\\"C:\\\\\\\\Users\\\\\\\\PC\\\\\\\\Desktop\\\\\\\\Dossier_Perso\\\\\\\\Github\\\\\\\\portfolio-pro\\\\\\\\.next\\\\\\\\dev\\\\\\\\lock\\\\\" && echo deleted\")",
+      "Bash(cmd.exe /c \"taskkill /F /IM node.exe 2>&1 & echo done\")",
+      "Bash(npx bmad-method:*)",
+      "Bash(wc -c /c/Users/PC/Desktop/Dossier_Perso/Github/IBM-HR-BA-Mission/00_Cadrage/note_de_cadrage_v1.docx /c/Users/PC/Desktop/Dossier_Perso/Github/IBM-HR-BA-Mission/01_Recueil_Besoins/*.* /c/Users/PC/Desktop/Dossier_Perso/Github/IBM-HR-BA-Mission/05_Recommandations/*.* /c/Users/PC/Desktop/Dossier_Perso/Github/IBM-HR-BA-Mission/06_Synthese_Portfolio/*.*)",
+      "Bash(gh repo:*)",
+      "WebFetch(domain:github.com)",
+      "Read(//c/Users/PC/Desktop/Dossier_Perso/Taff_Perso/OOS_tracker/OOS Follow-up/OOS Follow-up/**)",
+      "Read(//c/Users/PC/Desktop/Dossier_Perso/Taff_Perso/OOS_tracker/**)",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-16 115206.png\" \"c:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/ibm-01-vue-generale.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-16 115217.png\" \"c:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/ibm-02-profil-dept.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-16 115224.png\" \"c:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/ibm-03-facteurs-risque.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-16 115232.png\" \"c:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/ibm-04-cout-impact.png\")",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}
