@@ -5,24 +5,24 @@ import { useState } from "react";
 const services = [
   {
     number: "01",
-    title: "Analyse métier",
+    title: "Cadrage & besoins",
     description:
-      "Recueil des besoins, ateliers parties prenantes, cartographie des processus. Je traduis l'intention métier en exigences fonctionnelles claires.",
-    tags: ["Interviews", "Process mapping", "Gap analysis", "MoSCoW"],
+      "Recueil des besoins métier, interviews parties prenantes, cartographie des processus. Je transforme une intention floue en exigences fonctionnelles claires et priorisées.",
+    tags: ["Recueil besoins", "MoSCoW", "Process mapping", "User Stories"],
   },
   {
     number: "02",
-    title: "Livrables BA",
+    title: "Analyse & reporting",
     description:
-      "Notes de cadrage, User Stories avec critères d'acceptation, spécifications fonctionnelles, dictionnaire de données. Des livrables qui tiennent en réunion.",
-    tags: ["User Stories", "Note de cadrage", "SFD", "Dictionnaire données"],
+      "Dashboards Power BI actionnables, requêtes SQL, reporting hebdomadaire. Je fournis les bons chiffres aux bonnes personnes, lisibles sans expertise technique.",
+    tags: ["Power BI", "SQL", "KPI", "DAX"],
   },
   {
     number: "03",
-    title: "Data & Viz",
+    title: "Automatisation & IA",
     description:
-      "Analyse de données, dashboards Power BI, requêtes SQL. Je transforme des données brutes en insights décisionnels lisibles par tous.",
-    tags: ["Power BI", "SQL", "KPI", "Reporting"],
+      "Outils Python déployés en production, agents IA, automatisation de process répétitifs. Ce qui prenait des heures tourne en quelques minutes.",
+    tags: ["Python", "Streamlit", "N8N", "Agents IA"],
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Services() {
           marginBottom: "64px",
         }}
       >
-        Ce que je fais
+        Ce que j'apporte
       </p>
 
       <div

@@ -68,9 +68,9 @@ export default function Contact() {
               marginBottom: "48px",
             }}
           >
-            En recherche d'un CDI — Business Analyst, de préférence dans la
-            finance ou les services IT. Disponible pour un échange, une
-            candidature ou une mission.
+            En recherche d'un CDI Business Analyst pour septembre 2026.
+            E-commerce, retail, grande entreprise — si le poste est stimulant,
+            je suis partant. Disponible pour un échange ou une candidature.
           </p>
 
           {/* Dispo badge */}

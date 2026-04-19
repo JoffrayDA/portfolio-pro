@@ -2,9 +2,9 @@ const experiences = [
   {
     period: "2024 – auj.",
     company: "Edgard & Cooper",
-    role: "E-Commerce Sales Manager Assistant — Europe",
+    role: "Business Analyst E-Commerce · Amazon EU",
     highlight:
-      "Pilotage des prévisions de stocks, reporting e-tail hebdomadaire, automatisation des process e-commerce. Travail quotidien en anglais.",
+      "Pilotage d'un canal Amazon à 13,7M€ sur 6 marchés européens. Mission BA complète : cadrage, user stories, dashboards Power BI, outil Python/Streamlit déployé en prod sur 750+ SKUs.",
   },
   {
     period: "Avr. – Août 2024",
@@ -85,9 +85,9 @@ export default function About() {
               marginBottom: "24px",
             }}
           >
-            Je ne viens pas d'une grande école — je viens du terrain. Vente B2B,
-            business development, e-commerce : j'ai appris à comprendre vite,
-            à prioriser ce qui compte et à livrer.
+            6 ans sur le terrain — vente B2B grands comptes, business development,
+            e-commerce. J'ai appris à comprendre vite ce que veulent les clients,
+            à prioriser ce qui génère de la valeur, et à livrer sans attendre.
           </p>
 
           <p
@@ -100,9 +100,10 @@ export default function About() {
               marginBottom: "40px",
             }}
           >
-            Aujourd'hui en formation MSc Business & Data, je synthétise ce bagage
-            commercial avec des compétences BA structurées — pour faire le pont
-            entre le métier et l'IT, là où ça compte vraiment.
+            Aujourd'hui en MSc Business & Data, je pilote un canal Amazon à 13,7M€
+            en alternance chez Edgard & Cooper. Je fais le pont entre le métier
+            et la data : cadrage, analyse, outils — et je livre ce qui peut
+            être utilisé le lendemain matin en réunion.
           </p>
 
           {/* Formation */}

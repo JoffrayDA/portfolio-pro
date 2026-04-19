@@ -1,6 +1,6 @@
 "use client";
 
-type Tier = "Expert" | "Avancé" | "Intermédiaire" | "Notions";
+type Tier = "Expert" | "Avancé" | "Intermédiaire";
 
 const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[] = [
   {
@@ -8,37 +8,37 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
     skills: [
       { name: "Excel",            tier: "Expert" },
       { name: "Power BI",         tier: "Avancé" },
-      { name: "Tableau",          tier: "Avancé" },
       { name: "Python",           tier: "Intermédiaire" },
       { name: "SQL",              tier: "Intermédiaire" },
       { name: "Google Analytics", tier: "Intermédiaire" },
+      { name: "Tableau",          tier: "Intermédiaire" },
+    ],
+  },
+  {
+    category: "E-Commerce & Retail",
+    skills: [
+      { name: "Amazon Vendor & Seller", tier: "Avancé" },
+      { name: "Jungle Scout",           tier: "Avancé" },
+      { name: "Keepa API",              tier: "Avancé" },
+      { name: "Streamlit",              tier: "Intermédiaire" },
     ],
   },
   {
     category: "Automatisation & IA",
     skills: [
-      { name: "Notion",    tier: "Expert" },
       { name: "Agents IA", tier: "Avancé" },
-      { name: "Make",      tier: "Avancé" },
       { name: "N8N",       tier: "Avancé" },
-      { name: "Airtable",  tier: "Avancé" },
+      { name: "Make",      tier: "Avancé" },
+      { name: "Notion",    tier: "Expert" },
     ],
   },
   {
     category: "Gestion & Livrables",
     skills: [
       { name: "PowerPoint", tier: "Expert" },
-      { name: "GitHub",     tier: "Avancé" },
       { name: "Jira",       tier: "Intermédiaire" },
+      { name: "GitHub",     tier: "Avancé" },
       { name: "Figma",      tier: "Intermédiaire" },
-    ],
-  },
-  {
-    category: "En apprentissage",
-    skills: [
-      { name: "JavaScript",       tier: "Notions" },
-      { name: "Machine Learning", tier: "Notions" },
-      { name: "Docker",           tier: "Notions" },
     ],
   },
 ];
@@ -46,21 +46,13 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
 const languages = [
   { name: "Français", level: "Natif" },
   { name: "Anglais",  level: "Bilingue" },
-  { name: "Japonais", level: "Débutant" },
+  { name: "Japonais", level: "Notions" },
 ];
 
 const tierColor: Record<Tier, string> = {
   Expert:        "var(--accent)",
   Avancé:        "var(--accent)",
   Intermédiaire: "var(--muted)",
-  Notions:       "var(--border)",
-};
-
-const tierWeight: Record<Tier, number> = {
-  Expert:        500,
-  Avancé:        400,
-  Intermédiaire: 400,
-  Notions:       400,
 };
 
 function SkillRow({ name, tier, last }: { name: string; tier: Tier; last: boolean }) {
@@ -76,7 +68,7 @@ function SkillRow({ name, tier, last }: { name: string; tier: Tier; last: boolea
         fontFamily: "var(--font-sans)",
         fontSize: "14px",
         color: "var(--fg)",
-        opacity: tier === "Notions" ? 0.45 : 0.85,
+        opacity: 0.85,
       }}>
         {name}
       </span>
@@ -86,8 +78,6 @@ function SkillRow({ name, tier, last }: { name: string; tier: Tier; last: boolea
         letterSpacing: "0.15em",
         textTransform: "uppercase",
         color: tierColor[tier],
-        fontWeight: tierWeight[tier],
-        opacity: tier === "Notions" ? 0.5 : 1,
       }}>
         {tier}
       </span>
@@ -103,7 +93,6 @@ export default function Skills() {
         borderBottom: "1px solid var(--border)",
       }}
     >
-      {/* Header */}
       <div style={{
         display: "flex",
         justifyContent: "space-between",
@@ -122,7 +111,6 @@ export default function Skills() {
           Outils & Langues
         </p>
 
-        {/* Languages */}
         <div style={{ display: "flex", gap: "24px" }}>
           {languages.map(({ name, level }) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -145,7 +133,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* 2-column grid of skill groups */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
@@ -153,7 +140,6 @@ export default function Skills() {
       }}>
         {skillGroups.map(({ category, skills }) => (
           <div key={category}>
-            {/* Category header */}
             <p style={{
               fontFamily: "var(--font-mono)",
               fontSize: "9px",
@@ -166,8 +152,6 @@ export default function Skills() {
             }}>
               {category}
             </p>
-
-            {/* Skill rows */}
             {skills.map((s, i) => (
               <SkillRow
                 key={s.name}
