@@ -56,11 +56,11 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
         </p>
         <h2 style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "clamp(52px, 8vw, 110px)",
+          fontSize: "clamp(36px, 5.5vw, 72px)",
           fontWeight: 300,
-          lineHeight: 1.0,
+          lineHeight: 1.05,
           color: "#FAF7F2",
-          marginBottom: "24px",
+          marginBottom: "20px",
         }}>
           {data.title}
           <br />
