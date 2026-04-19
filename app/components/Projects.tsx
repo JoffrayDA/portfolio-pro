@@ -60,7 +60,7 @@ const projects: ProjectOverlayData[] = [
       "Analyse complète de la carrière de Kobe Bryant — 20 saisons, 1 346 matchs, 5 titres NBA. Un dashboard Power BI construit de A à Z, des données brutes aux insights visuels.",
     tools: ["Power BI", "DAX", "Power Query", "NBA API"],
     bgColor: "#0F0D0B",
-    accentColor: "#A52020",
+    accentColor: "#6B1F1F",
     bgImage: "/kobe.jpg",
     screens: [
       {
