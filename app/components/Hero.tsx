@@ -98,7 +98,7 @@ export default function Hero() {
           marginBottom: "48px",
         }}
       >
-        Du cadrage au dashboard — je transforme des besoins flous en livrables concrets.
+        Profil hybride Business · Data · IA — ce que j'apprends le soir, je le déploie le lendemain.
       </p>
 
       {/* CTA */}
