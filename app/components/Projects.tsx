@@ -4,18 +4,18 @@ import { useState } from "react";
 import ProjectOverlay, { ProjectOverlayData } from "./ProjectOverlay";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Projects data
+// Data
 // ─────────────────────────────────────────────────────────────────────────────
 
 const projects: ProjectOverlayData[] = [
   {
     id: "ibm-hr",
     title: "IBM HR Analytics",
-    subtitle: "Attrition & recommandations",
-    category: "Mission BA simulée",
+    subtitle: "Mission BA complète — Attrition RH",
+    category: "Mission BA",
     description:
-      "Démarche BA complète sur le dataset IBM HR Analytics (Kaggle). Identification des facteurs d'attrition, production de livrables BA structurés et recommandations actionnables pour une DRH fictive.",
-    tools: ["Power BI", "Excel", "DAX", "MoSCoW", "Kaggle"],
+      "Mission BA menée de A à Z sur le dataset IBM HR Analytics (Kaggle) : cadrage, backlog MoSCoW, dictionnaire de données, dashboard Power BI 4 pages, rapport de recommandations. Objectif : identifier les facteurs d'attrition et produire des recommandations décisionnelles pour une DRH fictive.",
+    tools: ["Power BI", "DAX", "Power Query", "Excel", "MoSCoW", "Kaggle"],
     bgColor: "#0D0C0B",
     accentColor: "#8C6A3A",
     screens: [
@@ -23,33 +23,83 @@ const projects: ProjectOverlayData[] = [
         n: "02",
         title: "Vue Générale",
         src: "/ibm-01-vue-generale.png",
-        description: "Vue d'ensemble : 1 470 employés, taux d'attrition global de 16,12%, répartition par âge et par département.",
+        description: "1 470 employés, 16,12% d'attrition (237 départs). Les moins de 25 ans quittent 2× plus. Sales et RH concentrent le risque le plus élevé.",
       },
       {
         n: "03",
         title: "Profil & Département",
         src: "/ibm-02-profil-dept.png",
-        description: "Analyse croisée par poste et ancienneté. Les Sales Representatives affichent le taux d'attrition le plus élevé (39%).",
+        description: "Sales Representative : 39% de départs — poste le plus vulnérable. Les juniors (niveau 1) quittent 3× plus que les seniors (niveau 5). Pic de départs dans les 2 premières années.",
       },
       {
         n: "04",
         title: "Facteurs de Risque",
         src: "/ibm-03-facteurs-risque.png",
-        description: "Les heures supplémentaires, la satisfaction environnementale et l'équilibre vie pro/perso sont les déclencheurs principaux.",
+        description: "Overtime : les employés en heures sup quittent 3× plus. Satisfaction faible, faible implication, mauvais équilibre vie pro/perso et environnement de travail dégradé sont les 5 signaux d'alarme identifiés.",
       },
       {
         n: "05",
         title: "Coût & Impact Financier",
         src: "/ibm-04-cout-impact.png",
-        description: "Estimation du coût total des départs à 7M€. Répartition par département et corrélation avec le niveau de salaire.",
+        description: "7M€ de coût d'attrition estimé. R&D et Sales représentent 90% du total. Le coût de remplacement explose dans les 10 premières années d'ancienneté.",
       },
     ],
     stats: [
       { value: "16,12%", label: "Taux d'attrition global" },
       { value: "7 M€",   label: "Coût estimé des départs" },
+      { value: "6",      label: "Livrables BA produits" },
       { value: "4",      label: "Recommandations actionnables" },
     ],
     githubUrl: "https://github.com/JoffrayDA/IBM-HR-BA-Mission",
+  },
+  {
+    id: "hackathon-mirakl",
+    title: "Mirakl SAV Agent",
+    subtitle: "Hackathon Eugenia × Mirakl",
+    category: "Hackathon · IA Agentique",
+    description:
+      "Plateforme d'orchestration agentique pour déléguer l'intégralité du SAV marketplace à une IA autonome. Gestion des tickets, détection d'anomalies, validations humaines et dialogue avec l'agent Aria — conçu de A à Z sur Mirakl Connect en tant que chef de projet.",
+    tools: ["N8N", "Supabase", "OpenAI", "TypeScript", "Mirakl Connect"],
+    bgColor: "#090C18",
+    accentColor: "#4F6BFF",
+    screens: [
+      {
+        n: "02",
+        title: "Plateforme",
+        src: "/hackathon-01-login.png",
+        description: "Landing page de Mirakl SAV : déléguez vos opérations SAV à un agent IA autonome via Mirakl Connect.",
+      },
+      {
+        n: "03",
+        title: "Tableau de bord SAV",
+        src: "/hackathon-02-tickets.png",
+        description: "Vue centrale des tickets ouverts, SLA en danger et remboursements en attente. Filtrage par marketplace et statut.",
+      },
+      {
+        n: "04",
+        title: "IA en action",
+        src: "/hackathon-03-flux-live.png",
+        description: "Flux live : l'agent traite les tickets en temps réel, catégorise, répond et escalade les cas critiques automatiquement.",
+      },
+      {
+        n: "05",
+        title: "Contrôle humain",
+        src: "/hackathon-04-validations.png",
+        description: "Human-in-the-loop : le marchand valide ou override les décisions sensibles (remboursements élevés, cas ambigus).",
+      },
+      {
+        n: "06",
+        title: "Agent Aria",
+        src: "/hackathon-05-dialogue.png",
+        description: "Interface de dialogue avec Aria, l'agent IA : interrogeable en langage naturel sur l'état du SAV en temps réel.",
+      },
+    ],
+    stats: [
+      { value: "3e",   label: "sur 15 équipes" },
+      { value: "100%", label: "SAV automatisé" },
+      { value: "5",    label: "marketplaces pilotées" },
+    ],
+    githubUrl: "https://github.com/JoffrayDA/hackathon-eugenia-x-mirakl",
   },
   {
     id: "kobe",
@@ -146,19 +196,36 @@ const projects: ProjectOverlayData[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Project card
+// Grid placement: index → CSS grid position
+// Row 1 (420px): IBM (dominant left) | Mirakl (right)
+// Row 2 (300px): Kobe | Price Tracker | Edgard (equal thirds)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function ProjectCard({
+const gridPlacements = [
+  { gridColumn: "1 / 8",  gridRow: "1" },  // IBM (0) — dominant visual
+  { gridColumn: "8 / 13", gridRow: "1" },  // Mirakl (1)
+  { gridColumn: "1 / 5",  gridRow: "2" },  // Kobe (2)
+  { gridColumn: "5 / 9",  gridRow: "2" },  // Price Tracker (3)
+  { gridColumn: "9 / 13", gridRow: "2" },  // Edgard (4)
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Project cell
+// ─────────────────────────────────────────────────────────────────────────────
+
+function ProjectCell({
   project,
   number,
   onClick,
+  style,
 }: {
   project: ProjectOverlayData;
   number: string;
   onClick: () => void;
+  style?: React.CSSProperties;
 }) {
   const [hovered, setHovered] = useState(false);
+  const bgImage = project.bgImage ?? project.screens[0]?.src;
 
   return (
     <div
@@ -167,157 +234,144 @@ function ProjectCard({
       onMouseLeave={() => setHovered(false)}
       style={{
         position: "relative",
-        background: hovered ? "var(--surface)" : "var(--bg)",
-        padding: "56px clamp(24px, 5vw, 72px)",
+        background: project.bgColor,
+        backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         cursor: "pointer",
-        transition: "background 0.3s ease",
-        borderBottom: "1px solid var(--border)",
         overflow: "hidden",
+        ...style,
       }}
     >
-      {/* Number + category */}
-      <div style={{ display: "flex", alignItems: "baseline", gap: "16px", marginBottom: "32px" }}>
-        <span style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.2em",
-          color: "var(--muted)",
-        }}>
+      {/* Gradient overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: hovered
+            ? "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.48) 50%, rgba(0,0,0,0.15) 100%)"
+            : "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.05) 100%)",
+          transition: "background 0.4s ease",
+        }}
+      />
+
+      {/* Top bar: number + "Voir →" */}
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "24px",
+          right: "24px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          zIndex: 1,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "9px",
+            letterSpacing: "0.2em",
+            color: "rgba(255,255,255,0.35)",
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
           {number}
+          {project.confidential && (
+            <span
+              style={{
+                border: "1px solid rgba(255,255,255,0.2)",
+                padding: "2px 8px",
+                fontSize: "8px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+              }}
+            >
+              confidentiel
+            </span>
+          )}
         </span>
-        <span style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-          color: project.accentColor,
-        }}>
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "9px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.9)",
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? "translateX(0)" : "translateX(8px)",
+            transition: "opacity 0.3s ease, transform 0.3s ease",
+          }}
+        >
+          Voir →
+        </span>
+      </div>
+
+      {/* Bottom: category + title + subtitle on hover */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "28px",
+          left: "24px",
+          right: "24px",
+          zIndex: 1,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "8px",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: project.accentColor,
+            marginBottom: "10px",
+          }}
+        >
           {project.category}
-        </span>
-        {project.confidential && (
-          <span style={{
+        </p>
+        <h3
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(20px, 2.4vw, 40px)",
+            fontWeight: 300,
+            color: "#fff",
+            lineHeight: 1.05,
+          }}
+        >
+          {project.title}
+        </h3>
+        <p
+          style={{
             fontFamily: "var(--font-mono)",
             fontSize: "9px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            border: "1px solid var(--border)",
-            padding: "2px 8px",
-          }}>
-            confidentiel
-          </span>
-        )}
-      </div>
-
-      {/* Title */}
-      <h3 style={{
-        fontFamily: "var(--font-serif)",
-        fontSize: "clamp(36px, 4.5vw, 64px)",
-        fontWeight: 300,
-        lineHeight: 1.0,
-        color: "var(--fg)",
-        marginBottom: "8px",
-        transition: "color 0.3s ease",
-      }}>
-        {project.title}
-      </h3>
-      <p style={{
-        fontFamily: "var(--font-mono)",
-        fontSize: "11px",
-        letterSpacing: "0.1em",
-        color: "var(--muted)",
-        marginBottom: "28px",
-      }}>
-        {project.subtitle}
-      </p>
-
-      {/* Description */}
-      <p style={{
-        fontFamily: "var(--font-sans)",
-        fontSize: "14px",
-        lineHeight: 1.75,
-        color: "var(--fg)",
-        opacity: 0.55,
-        maxWidth: "520px",
-        marginBottom: "40px",
-      }}>
-        {project.description}
-      </p>
-
-      {/* Tools */}
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "48px" }}>
-        {project.tools.map(t => (
-          <span key={t} style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "9px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            border: "1px solid var(--border)",
-            padding: "3px 10px",
-          }}>
-            {t}
-          </span>
-        ))}
-      </div>
-
-      {/* Stats row */}
-      <div style={{
-        display: "flex",
-        gap: "48px",
-        paddingTop: "32px",
-        borderTop: "1px solid var(--border)",
-      }}>
-        {project.stats.map(s => (
-          <div key={s.label}>
-            <p style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(22px, 2.5vw, 32px)",
-              fontWeight: 300,
-              color: "var(--fg)",
-              marginBottom: "4px",
-            }}>
-              {s.value}
-            </p>
-            <p style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "9px",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-            }}>
-              {s.label}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* CTA arrow */}
-      <div style={{
-        position: "absolute",
-        bottom: "40px",
-        right: "clamp(24px, 5vw, 72px)",
-        fontFamily: "var(--font-mono)",
-        fontSize: "11px",
-        letterSpacing: "0.2em",
-        textTransform: "uppercase",
-        color: hovered ? project.accentColor : "var(--muted)",
-        transition: "color 0.3s ease, transform 0.3s ease",
-        transform: hovered ? "translateX(4px)" : "translateX(0)",
-      }}>
-        Voir le projet →
+            letterSpacing: "0.1em",
+            color: "rgba(255,255,255,0.5)",
+            marginTop: "6px",
+            maxHeight: hovered ? "20px" : "0",
+            overflow: "hidden",
+            opacity: hovered ? 1 : 0,
+            transition: "opacity 0.3s ease, max-height 0.3s ease",
+          }}
+        >
+          {project.subtitle}
+        </p>
       </div>
 
       {/* Bottom accent line */}
-      <div style={{
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        height: "2px",
-        width: hovered ? "100%" : "0%",
-        background: project.accentColor,
-        transition: "width 0.5s ease",
-      }} />
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          height: "2px",
+          width: hovered ? "100%" : "0%",
+          background: project.accentColor,
+          transition: "width 0.5s ease",
+        }}
+      />
     </div>
   );
 }
@@ -331,37 +385,34 @@ export default function Projects() {
 
   return (
     <>
-      <section
-        id="projets"
-        style={{ padding: "120px 0 0" }}
-      >
-        {/* Section label */}
-        <h2 style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(36px, 5vw, 64px)",
-          fontWeight: 300,
-          color: "var(--fg)",
-          lineHeight: 1.05,
-          marginBottom: "64px",
-          padding: "0 clamp(24px, 8vw, 120px)",
-        }}>
+      <section id="projets" style={{ paddingTop: "120px" }}>
+        <h2
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(36px, 5vw, 64px)",
+            fontWeight: 300,
+            color: "var(--fg)",
+            lineHeight: 1.05,
+            marginBottom: "64px",
+            padding: "0 clamp(24px, 8vw, 120px)",
+          }}
+        >
           Projets
         </h2>
 
-        {/* Cards */}
-        <div>
+        <div className="projects-visual-grid">
           {projects.map((project, i) => (
-            <ProjectCard
+            <ProjectCell
               key={project.id}
               project={project}
               number={String(i + 1).padStart(2, "0")}
               onClick={() => setActiveProject(project)}
+              style={gridPlacements[i]}
             />
           ))}
         </div>
       </section>
 
-      {/* Overlay */}
       {activeProject && (
         <ProjectOverlay
           data={activeProject}

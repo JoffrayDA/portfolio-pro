@@ -44,16 +44,6 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
       paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
     }}>
       <div style={{ maxWidth: "560px" }}>
-        <p style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "12px",
-          letterSpacing: "0.28em",
-          textTransform: "uppercase",
-          color: data.accentColor,
-          marginBottom: "28px",
-        }}>
-          01 · {data.category}
-        </p>
         <h2 style={{
           fontFamily: "var(--font-serif)",
           fontSize: "clamp(36px, 5.5vw, 72px)",
@@ -72,7 +62,7 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
           fontFamily: "var(--font-sans)",
           fontSize: "14px",
           lineHeight: 1.8,
-          color: "rgba(250,247,242,0.5)",
+          color: "rgba(250,247,242,0.9)",
           maxWidth: "460px",
           marginBottom: "32px",
         }}>
@@ -82,12 +72,12 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
           {data.tools.map(tool => (
             <span key={tool} style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "10px",
+              fontSize: "13px",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: "rgba(250,247,242,0.4)",
+              color: "rgba(250,247,242,0.9)",
               border: `1px solid ${data.accentColor}55`,
-              padding: "4px 12px",
+              padding: "6px 14px",
             }}>
               {tool}
             </span>
@@ -98,7 +88,8 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
   );
 }
 
-function PanelScreen({ panel, accentColor }: { panel: ScreenPanel; accentColor: string }) {
+function PanelScreen({ panel, accentColor, index }: { panel: ScreenPanel; accentColor: string; index: number }) {
+  const n = String(index + 1).padStart(2, "0");
   return (
     <div style={{
       width: "100vw", height: "100vh", flexShrink: 0,
@@ -108,32 +99,32 @@ function PanelScreen({ panel, accentColor }: { panel: ScreenPanel; accentColor: 
       <div style={{ width: "100%", maxWidth: "1100px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "13px",
+          fontSize: "17px",
           letterSpacing: "0.25em",
           textTransform: "uppercase",
           color: accentColor,
           marginBottom: "24px",
         }}>
-          {panel.n} · {panel.title}
+          {n} · {panel.title}
         </p>
         <div style={{
           width: "100%",
           overflow: "hidden",
-          height: "58vh",
+          height: "68vh",
           border: `1px solid ${accentColor}33`,
         }}>
           <img
             src={panel.src}
             alt={panel.title}
-            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", filter: "brightness(1.35)" }}
           />
         </div>
         <p style={{
           fontFamily: "var(--font-sans)",
-          fontSize: "12px",
-          color: "rgba(250,247,242,0.3)",
+          fontSize: "13px",
+          color: "rgba(250,247,242,0.9)",
           marginTop: "16px",
-          maxWidth: "540px",
+          maxWidth: "640px",
           lineHeight: 1.7,
         }}>
           {panel.description}
@@ -213,8 +204,8 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
 
 function PanelStats({ data }: { data: ProjectOverlayData }) {
   const lastN = data.confidential
-    ? "03"
-    : String(data.screens.length + 2).padStart(2, "0");
+    ? "02"
+    : String(data.screens.length + 1).padStart(2, "0");
 
   return (
     <div style={{
@@ -225,7 +216,7 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
       <div style={{ width: "100%", maxWidth: "860px" }}>
         <p style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "13px",
+          fontSize: "17px",
           letterSpacing: "0.25em",
           textTransform: "uppercase",
           color: data.accentColor,
@@ -256,7 +247,7 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
                 fontSize: "9px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "rgba(250,247,242,0.3)",
+                color: "rgba(250,247,242,0.7)",
                 lineHeight: 1.5,
               }}>
                 {s.label}
@@ -271,12 +262,12 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
             rel="noopener noreferrer"
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
+              fontSize: "13px",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: data.accentColor,
-              border: `1px solid ${data.accentColor}66`,
-              padding: "12px 24px",
+              border: `1px solid ${data.accentColor}99`,
+              padding: "16px 32px",
               textDecoration: "none",
               display: "inline-block",
             }}
@@ -421,7 +412,7 @@ export default function ProjectOverlay({ data, onClose }: Props) {
         style={{
           position: "absolute", top: "32px", left: "32px", zIndex: 10,
           fontFamily: "var(--font-mono)",
-          fontSize: "11px",
+          fontSize: "15px",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
           color: "rgba(250,247,242,0.35)",
@@ -454,8 +445,8 @@ export default function ProjectOverlay({ data, onClose }: Props) {
         {data.confidential ? (
           <PanelConfidential data={data} />
         ) : (
-          data.screens.map(panel => (
-            <PanelScreen key={panel.n} panel={panel} accentColor={data.accentColor} />
+          data.screens.map((panel, idx) => (
+            <PanelScreen key={panel.n} panel={panel} accentColor={data.accentColor} index={idx} />
           ))
         )}
         <PanelStats data={data} />

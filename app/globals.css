@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
@@ -13,6 +13,7 @@
   --font-serif: 'Cormorant Garant', Georgia, serif;
   --font-sans:  'DM Sans', system-ui, sans-serif;
   --font-mono:  'JetBrains Mono', monospace;
+  --font-nav:   'Montserrat', sans-serif;
 }
 
 * {
@@ -30,4 +31,49 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Hero split layout */
+.hero-split {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+}
+
+/* Projects visual grid */
+.projects-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 420px 300px;
+  gap: 2px;
+  background: var(--border);
+}
+
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+  .hero-preview-grid {
+    height: 260px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .projects-visual-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 240px);
+  }
+  .projects-visual-grid > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
 }
