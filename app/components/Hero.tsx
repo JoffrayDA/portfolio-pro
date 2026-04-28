@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const slides = [
-  { label: "Data Analyse",       title: "IBM HR Analytics",      bg: "#8C6A3A", image: "/ibm-01-vue-generale.png", bgPos: "center", bgSize: "contain" },
+  { label: "Data Analyse",       title: "IBM HR Analytics",      bg: "#8C6A3A", image: "/ibm-01-vue-generale.png", bgPos: "center",     bgSize: "contain" },
   { label: "Agentic IA",         title: "Mirakl SAV Agent",      bg: "#4F6BFF", image: "/hackathon-01-login.png",  bgPos: "center", bgSize: "cover"   },
   { label: "Data Visualisation", title: "Mamba Mentality",       bg: "#6B1F1F", image: "/kobe.jpg",                bgPos: "center", bgSize: "cover"   },
   { label: "Outil Python",       title: "Amazon Price Tracker",  bg: "#2D7A4F", image: null,                       bgPos: "center", bgSize: "cover"   },
@@ -23,7 +23,7 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "clamp(20px, 3.5vw, 48px)",
+        padding: "clamp(8px, 1vw, 16px)",
       }}
     >
       {/* Cadre principal */}
@@ -69,8 +69,8 @@ export default function Hero() {
             display: "grid",
             gridTemplateColumns: "28fr 72fr",
             flex: 1,
-            gap: "36px",
-            padding: "0 28px 28px",
+            gap: "8px",
+            padding: "0",
             overflow: "hidden",
           }}
         >
@@ -137,9 +137,9 @@ export default function Hero() {
               position: "relative",
               display: "block",
               textDecoration: "none",
-              borderRadius: "14px",
+              borderRadius: "0 0 24px 0",
               overflow: "hidden",
-              border: "1px solid #e8e2da",
+              border: "none",
             }}
           >
             {/* Fond coloré / image */}
@@ -164,23 +164,6 @@ export default function Hero() {
               />
             )}
 
-            {/* Label catégorie — top left */}
-            <span
-              style={{
-                position: "absolute",
-                top: "16px",
-                left: "20px",
-                zIndex: 2,
-                fontFamily: "var(--font-nav)",
-                fontSize: "15px",
-                fontWeight: 500,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.75)",
-              }}
-            >
-              {slide.label}
-            </span>
 
             {/* Titre projet — bas gauche */}
             <p

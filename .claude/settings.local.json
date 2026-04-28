@@ -32,7 +32,20 @@
       "Bash(cp \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio/public/kobe-01-intro.png\" \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/kobe-01-intro.png\")",
       "Bash(cp \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio/public/kobe-02-ascension.png\" \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/kobe-02-ascension.png\")",
       "Bash(cp \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio/public/kobe-03-night81.png\" \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/kobe-03-night81.png\")",
-      "Bash(cp \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio/public/kobe-04-scorer.png\" \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/kobe-04-scorer.png\")"
+      "Bash(cp \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio/public/kobe-04-scorer.png\" \"/c/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/kobe-04-scorer.png\")",
+      "Bash(git commit -m 'fix: align Kobe accent color with portfolio --accent #6B1F1F:*)",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-24 151501.png\" \"C:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/hackathon-01-login.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-24 151552.png\" \"C:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/hackathon-02-tickets.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-24 151623.png\" \"C:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/hackathon-03-flux-live.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-24 151631.png\" \"C:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/hackathon-04-validations.png\")",
+      "Bash(cp \"c:/Users/PC/Pictures/Screenshots/Capture d'écran 2026-04-24 151642.png\" \"C:/Users/PC/Desktop/Dossier_Perso/Github/portfolio-pro/public/hackathon-05-dialogue.png\")",
+      "WebFetch(domain:fr.wix.com)",
+      "WebFetch(domain:www.junedigann.com)",
+      "WebSearch",
+      "WebFetch(domain:sofiamiller.myportfolio.com)",
+      "Bash(npx next *)",
+      "Bash(netstat -ano)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
