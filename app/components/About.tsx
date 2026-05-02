@@ -1,29 +1,31 @@
 const experiences = [
   {
-    period: "2024 – auj.",
+    period: "Sept. 2024 – auj.",
     company: "Edgard & Cooper",
-    role: "Business Analyst E-Commerce · Amazon EU",
+    role: "Business Analyst E-Commerce · MSc alternance",
     highlight:
-      "Pilotage d'un canal Amazon à 13,7M€ sur 6 marchés européens. Mission BA complète : cadrage, user stories, dashboards Power BI, outil Python/Streamlit déployé en prod sur 750+ SKUs.",
+      "Contribution au pilotage du canal Amazon à 13,7M€ de sell-in (+26,2% vs 2024) sur 6 marchés européens. Mission BA complète : cadrage, backlog MoSCoW, user stories, dashboard Power BI sur 750+ SKUs. Développement d'un outil de veille prix Python/Keepa API/Streamlit déployé en production.",
   },
   {
-    period: "Avr. – Août 2024",
-    company: "AMD Blue",
-    role: "Business Developer · Services & conseil Data",
+    period: "Sept. 2023 – Août 2024",
+    company: "AMD Blue · Pluraskills",
+    role: "Business Developer · Conseil Data & IT",
     highlight:
-      "Prospection Grands Comptes, études de marché, plans de prospection Data.",
+      "AMD Blue (5 mois) — cabinet conseil Data : prospection Grands Comptes, placement d'un consultant chez BPCE Solutions Informatiques. Pluraskills (7 mois) — cabinet conseil IT : prospection multi-secteurs dans l'écosystème Data/IA.",
   },
   {
-    period: "2023 – 2024",
-    company: "Pluraskills",
-    role: "Business Developer · Cabinet conseil IT",
-    highlight: "Prospection, gestion RDV, contribution au recrutement IT.",
+    period: "2015–2016 · 2018–2023",
+    company: "Point P · BHV Marais · Foot Locker · Ralph Lauren",
+    role: "Vente & Relation Client · B2B / Retail premium",
+    highlight:
+      "B2B grands comptes chez Point P : gestion de stock, logistique & approvisionnement BTP. Retail premium chez BHV, Foot Locker et Ralph Lauren.",
   },
   {
-    period: "2021 – 2023",
-    company: "Point P",
-    role: "Conseiller de vente B2B",
-    highlight: "Négociations clients/fournisseurs, gestion de portefeuille.",
+    period: "2016 – 2018",
+    company: "Australie",
+    role: "Expérience internationale",
+    highlight:
+      "Matelot (1 an) · Superviseur backpackers internationaux (4 mois) · Construction (6 mois+). Management multiculturel, autonomie complète, contexte anglophone immersif.",
   },
 ];
 
@@ -59,6 +61,31 @@ export default function About() {
       >
         {/* Left — bio */}
         <div>
+          {/* Photo */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "360px",
+              marginBottom: "40px",
+              borderRadius: "4px",
+              overflow: "hidden",
+              aspectRatio: "3 / 4",
+            }}
+          >
+            <img
+              src="/joffray.jpg"
+              alt="Joffray De Alberto"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center top",
+                display: "block",
+                filter: "grayscale(15%)",
+              }}
+            />
+          </div>
+
           <h2
             style={{
               fontFamily: "var(--font-serif)",
@@ -69,9 +96,9 @@ export default function About() {
               marginBottom: "40px",
             }}
           >
-            Ingénieur d'affaires<br />
+            6 ans en vente B2B/B2C,<br />
             <span style={{ color: "var(--accent)", fontStyle: "italic" }}>
-              reconverti vers la Data.
+              pivoté vers la Data & l'IA.
             </span>
           </h2>
 
@@ -85,9 +112,9 @@ export default function About() {
               marginBottom: "24px",
             }}
           >
-            6 ans sur le terrain : vente B2B grands comptes, business development,
-            e-commerce. J'ai appris à comprendre vite ce que veulent les clients,
-            à prioriser ce qui génère de la valeur, et à livrer sans attendre.
+            Point P, BHV, Foot Locker, Ralph Lauren — j'ai appris à comprendre vite
+            ce que veulent les clients, à prioriser ce qui génère de la valeur,
+            et à livrer sans attendre.
           </p>
 
           <p
@@ -100,51 +127,28 @@ export default function About() {
               marginBottom: "40px",
             }}
           >
-            Aujourd'hui en MSc Business & Data, je pilote un canal Amazon à 13,7M€
-            en alternance chez Edgard & Cooper. Je fais le pont entre le métier
-            et la data : cadrage, analyse, outils. Je livre ce qui peut
-            être utilisé le lendemain matin en réunion.
+            Aujourd'hui Business Analyst en alternance chez Edgard & Cooper,
+            je contribue à un canal Amazon à 13,7M€ sur 6 marchés européens.
+            Profil hybride Business / Data / IA : cadrage, dashboards Power BI,
+            outils Python déployés en prod, agents IA agentiques.
           </p>
 
           {/* Formation */}
-          <div
-            style={{
-              borderLeft: "2px solid var(--accent)",
-              paddingLeft: "24px",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "var(--muted)",
-                marginBottom: "8px",
-              }}
-            >
-              Formation
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "18px",
-                fontWeight: 400,
-                color: "var(--fg)",
-                marginBottom: "4px",
-              }}
-            >
-              MSc Business & Data
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                color: "var(--muted)",
-              }}
-            >
-              Eugenia School · 2024 / 2026
-            </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            {[
+              { degree: "MSc Business & Data — IA Applied to Business", school: "Eugenia School", period: "2024 – 2026 (en cours)" },
+              { degree: "Bachelor Commerce International", school: "Euridis Business School", period: "2023 – 2024" },
+              { degree: "BTS NDRC", school: "Stephenson Formation", period: "2021 – 2023" },
+            ].map(({ degree, school, period }) => (
+              <div key={school} style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "20px" }}>
+                <p style={{ fontFamily: "var(--font-serif)", fontSize: "16px", fontWeight: 400, color: "var(--fg)", marginBottom: "2px" }}>
+                  {degree}
+                </p>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted)" }}>
+                  {school} · {period}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 

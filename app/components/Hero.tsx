@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const slides = [
-  { label: "Data Analyse",       title: "IBM HR Analytics",      bg: "#8C6A3A", image: "/ibm-01-vue-generale.png", bgPos: "center",     bgSize: "contain" },
+  { label: "Data Analyse",       title: "IBM HR Analytics",      bg: "#8C6A3A", image: "/ibm-01-vue-generale.png", bgPos: "top center", bgSize: "100% auto" },
   { label: "Agentic IA",         title: "Mirakl SAV Agent",      bg: "#4F6BFF", image: "/hackathon-01-login.png",  bgPos: "center", bgSize: "cover"   },
   { label: "Data Visualisation", title: "Mamba Mentality",       bg: "#6B1F1F", image: "/kobe.jpg",                bgPos: "center", bgSize: "cover"   },
   { label: "Outil Python",       title: "Amazon Price Tracker",  bg: "#2D7A4F", image: null,                       bgPos: "center", bgSize: "cover"   },
@@ -23,15 +23,15 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "clamp(8px, 1vw, 16px)",
+        padding: "clamp(20px, 3.5vw, 48px)",
       }}
     >
       {/* Cadre principal */}
       <div
         style={{
           width: "100%",
-          maxWidth: "1100px",
-          height: "clamp(460px, 74vh, 680px)",
+          maxWidth: "920px",
+          height: "clamp(420px, 64vh, 630px)",
           background: "#fff",
           borderRadius: "24px",
           boxShadow: "0 16px 80px rgba(0,0,0,0.18)",
@@ -43,19 +43,20 @@ export default function Hero() {
         {/* Nom */}
         <div
           style={{
-            padding: "clamp(16px, 2.5vw, 36px) clamp(20px, 3vw, 40px) clamp(10px, 1.2vw, 18px)",
-            borderBottom: "1px solid #e8e2da",
+            padding: "clamp(16px, 2.5vw, 36px) 44px clamp(10px, 1.2vw, 18px)",
+            borderBottom: "none",
             flexShrink: 0,
           }}
         >
           <h1
             style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(32px, 9vw, 116px)",
-              fontWeight: 700,
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "clamp(36px, 9.5vw, 108px)",
+              fontWeight: 300,
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
               whiteSpace: "nowrap",
+              textAlign: "center",
               color: "var(--fg)",
             }}
           >
@@ -69,8 +70,8 @@ export default function Hero() {
             display: "grid",
             gridTemplateColumns: "28fr 72fr",
             flex: 1,
-            gap: "8px",
-            padding: "0",
+            gap: "44px",
+            padding: "0 44px 44px",
             overflow: "hidden",
           }}
         >
@@ -84,6 +85,8 @@ export default function Hero() {
               borderRadius: "14px",
               overflow: "hidden",
               border: "1px solid #e8e2da",
+              alignSelf: "flex-end",
+              height: "clamp(240px, 34vh, 380px)",
             }}
           >
             {/* Label overlay */}
@@ -98,36 +101,26 @@ export default function Hero() {
                 fontWeight: 500,
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
-                color: "var(--fg)",
-                opacity: 0.5,
+                color: "#000",
+                opacity: 1,
               }}
             >
               À propos
             </span>
-            {/* Placeholder photo plein cadre */}
-            <div
+            {/* Photo portrait plein cadre */}
+            <img
+              src="/joffray.jpg"
+              alt="Joffray DeAlberto"
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "#f0ebe3",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center 28%",
+                display: "block",
               }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "9px",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "var(--muted)",
-                  opacity: 0.35,
-                }}
-              >
-                Photo
-              </p>
-            </div>
+            />
           </Link>
 
           {/* Droite — carousel projets */}
@@ -137,9 +130,11 @@ export default function Hero() {
               position: "relative",
               display: "block",
               textDecoration: "none",
-              borderRadius: "0 0 24px 0",
+              borderRadius: "14px",
               overflow: "hidden",
-              border: "none",
+              border: "1px solid #e8e2da",
+              alignSelf: "flex-end",
+              height: "clamp(240px, 34vh, 380px)",
             }}
           >
             {/* Fond coloré / image */}
