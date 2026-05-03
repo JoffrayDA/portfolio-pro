@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="fr" className="h-full">
       <body className="min-h-full">
         <Navbar />
-        <main style={{ paddingTop: "72px" }}>
+        <main>
           {children}
         </main>
       </body>

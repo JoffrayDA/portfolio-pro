@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg:      #FAF7F2;
+  --bg:      #E8E0D5;
   --fg:      #1A1A1A;
   --accent:  #6B1F1F;
   --muted:   #8C8070;
@@ -26,8 +26,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: var(--bg);
+html, body {
+  background: #E8E0D5 !important;
   color: var(--fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

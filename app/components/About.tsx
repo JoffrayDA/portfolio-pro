@@ -4,14 +4,14 @@ const experiences = [
     company: "Edgard & Cooper",
     role: "Business Analyst E-Commerce · MSc alternance",
     highlight:
-      "Contribution au pilotage du canal Amazon à 13,7M€ de sell-in (+26,2% vs 2024) sur 6 marchés européens. Mission BA complète : cadrage, backlog MoSCoW, user stories, dashboard Power BI sur 750+ SKUs. Développement d'un outil de veille prix Python/Keepa API/Streamlit déployé en production.",
+      "Contribution au pilotage du canal Amazon à 13,7M€ de sell-in (+26,2% vs 2024) sur 6 marchés européens (FR, UK, DE, IT, ES, NL). Mission BA complète sur le tracking des OOS et prix Amazon : cadrage, user stories, backlog MoSCoW et dashboard Power BI sur 750+ SKUs.",
   },
   {
     period: "Sept. 2023 – Août 2024",
     company: "AMD Blue · Pluraskills",
     role: "Business Developer · Conseil Data & IT",
     highlight:
-      "AMD Blue (5 mois) — cabinet conseil Data : prospection Grands Comptes, placement d'un consultant chez BPCE Solutions Informatiques. Pluraskills (7 mois) — cabinet conseil IT : prospection multi-secteurs dans l'écosystème Data/IA.",
+      "AMD Blue (5 mois) · Cabinet conseil Data : prospection Grands Comptes, placement d'un consultant chez BPCE Solutions Informatiques. Pluraskills (7 mois) · Cabinet conseil IT : prospection multi-secteurs dans l'écosystème Data/IA.",
   },
   {
     period: "2015–2016 · 2018–2023",
@@ -38,18 +38,18 @@ export default function About() {
         borderBottom: "1px solid var(--border)",
       }}
     >
-      <p
+      <h2
         style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "13px",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
+          fontFamily: "var(--font-serif)",
+          fontSize: "clamp(36px, 5vw, 64px)",
+          fontWeight: 300,
           color: "var(--accent)",
+          lineHeight: 1.05,
           marginBottom: "64px",
         }}
       >
         À propos
-      </p>
+      </h2>
 
       <div
         style={{
@@ -67,14 +67,14 @@ export default function About() {
               width: "100%",
               maxWidth: "360px",
               marginBottom: "40px",
-              borderRadius: "4px",
+              borderRadius: "16px",
               overflow: "hidden",
               aspectRatio: "3 / 4",
             }}
           >
             <img
-              src="/joffray.jpg"
-              alt="Joffray De Alberto"
+              src="/joffray2.png"
+              alt="Joffray DeAlberto"
               style={{
                 width: "100%",
                 height: "100%",
@@ -105,14 +105,14 @@ export default function About() {
           <p
             style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "15px",
+              fontSize: "16px",
               lineHeight: 1.8,
               color: "var(--fg)",
-              opacity: 0.65,
+              opacity: 1,
               marginBottom: "24px",
             }}
           >
-            Point P, BHV, Foot Locker, Ralph Lauren — j'ai appris à comprendre vite
+            Point P, BHV, Foot Locker, Ralph Lauren : j'ai appris à comprendre vite
             ce que veulent les clients, à prioriser ce qui génère de la valeur,
             et à livrer sans attendre.
           </p>
@@ -120,31 +120,31 @@ export default function About() {
           <p
             style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "15px",
+              fontSize: "16px",
               lineHeight: 1.8,
               color: "var(--fg)",
-              opacity: 0.65,
+              opacity: 1,
               marginBottom: "40px",
             }}
           >
             Aujourd'hui Business Analyst en alternance chez Edgard & Cooper,
             je contribue à un canal Amazon à 13,7M€ sur 6 marchés européens.
-            Profil hybride Business / Data / IA : cadrage, dashboards Power BI,
-            outils Python déployés en prod, agents IA agentiques.
+            Profil hybride Business / Data / IA : cadrage, dashboards Power BI actionnables,
+            agents IA agentiques.
           </p>
 
           {/* Formation */}
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {[
-              { degree: "MSc Business & Data — IA Applied to Business", school: "Eugenia School", period: "2024 – 2026 (en cours)" },
+              { degree: "MSc Business & Data · IA Applied to Business", school: "Eugenia School", period: "2024 – 2026 (en cours)" },
               { degree: "Bachelor Commerce International", school: "Euridis Business School", period: "2023 – 2024" },
               { degree: "BTS NDRC", school: "Stephenson Formation", period: "2021 – 2023" },
             ].map(({ degree, school, period }) => (
               <div key={school} style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "20px" }}>
-                <p style={{ fontFamily: "var(--font-serif)", fontSize: "16px", fontWeight: 400, color: "var(--fg)", marginBottom: "2px" }}>
+                <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 400, color: "var(--fg)", marginBottom: "2px" }}>
                   {degree}
                 </p>
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--muted)" }}>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--muted)" }}>
                   {school} · {period}
                 </p>
               </div>
@@ -156,11 +156,11 @@ export default function About() {
         <div>
           <p
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(28px, 3.5vw, 48px)",
+              fontWeight: 300,
+              color: "var(--accent)",
+              lineHeight: 1.05,
               marginBottom: "32px",
             }}
           >
@@ -188,7 +188,7 @@ export default function About() {
                   <p
                     style={{
                       fontFamily: "var(--font-sans)",
-                      fontSize: "14px",
+                      fontSize: "17px",
                       fontWeight: 500,
                       color: "var(--fg)",
                     }}
@@ -198,7 +198,7 @@ export default function About() {
                   <span
                     style={{
                       fontFamily: "var(--font-mono)",
-                      fontSize: "10px",
+                      fontSize: "12px",
                       color: "var(--muted)",
                       whiteSpace: "nowrap",
                       flexShrink: 0,
@@ -211,7 +211,7 @@ export default function About() {
                 <p
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "10px",
+                    fontSize: "11px",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
                     color: "var(--accent)",
@@ -224,10 +224,9 @@ export default function About() {
                 <p
                   style={{
                     fontFamily: "var(--font-sans)",
-                    fontSize: "13px",
-                    lineHeight: 1.65,
+                    fontSize: "15px",
+                    lineHeight: 1.75,
                     color: "var(--fg)",
-                    opacity: 0.55,
                   }}
                 >
                   {highlight}

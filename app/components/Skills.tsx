@@ -8,8 +8,10 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
     skills: [
       { name: "Excel",            tier: "Expert" },
       { name: "Power BI",         tier: "Avancé" },
-      { name: "Python",           tier: "Intermédiaire" },
+      { name: "DAX",              tier: "Avancé" },
+      { name: "Power Query",      tier: "Avancé" },
       { name: "SQL",              tier: "Intermédiaire" },
+      { name: "Python",           tier: "Intermédiaire" },
       { name: "Google Analytics", tier: "Intermédiaire" },
       { name: "Tableau",          tier: "Intermédiaire" },
     ],
@@ -19,26 +21,28 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
     skills: [
       { name: "Amazon Vendor & Seller", tier: "Avancé" },
       { name: "Jungle Scout",           tier: "Avancé" },
-      { name: "Keepa API",              tier: "Avancé" },
-      { name: "Streamlit",              tier: "Intermédiaire" },
+      { name: "Catalogue management",   tier: "Avancé" },
+      { name: "Pricing",                tier: "Avancé" },
     ],
   },
   {
-    category: "Automatisation & IA",
+    category: "IA & Automatisation",
     skills: [
       { name: "Agents IA", tier: "Avancé" },
       { name: "N8N",       tier: "Avancé" },
       { name: "Make",      tier: "Avancé" },
-      { name: "Notion",    tier: "Expert" },
+      { name: "Dust",      tier: "Intermédiaire" },
     ],
   },
   {
-    category: "Gestion & Livrables",
+    category: "Méthodes BA",
     skills: [
-      { name: "PowerPoint", tier: "Expert" },
-      { name: "Jira",       tier: "Intermédiaire" },
-      { name: "GitHub",     tier: "Avancé" },
-      { name: "Figma",      tier: "Intermédiaire" },
+      { name: "Cadrage & User Stories",  tier: "Avancé" },
+      { name: "Backlog MoSCoW",          tier: "Avancé" },
+      { name: "Acceptance Criteria",     tier: "Avancé" },
+      { name: "Recueil de besoin",       tier: "Avancé" },
+      { name: "Reporting",               tier: "Avancé" },
+      { name: "GitHub",                  tier: "Avancé" },
     ],
   },
 ];
@@ -46,7 +50,6 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
 const languages = [
   { name: "Français", level: "Natif" },
   { name: "Anglais",  level: "Bilingue" },
-  { name: "Japonais", level: "Notions" },
 ];
 
 const tierColor: Record<Tier, string> = {
@@ -61,12 +64,12 @@ function SkillRow({ name, tier, last }: { name: string; tier: Tier; last: boolea
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "11px 0",
+      padding: "12px 0",
       borderBottom: last ? "none" : "1px solid var(--border)",
     }}>
       <span style={{
         fontFamily: "var(--font-sans)",
-        fontSize: "14px",
+        fontSize: "15px",
         color: "var(--fg)",
         opacity: 0.85,
       }}>
@@ -103,9 +106,9 @@ export default function Skills() {
       }}>
         <h2 style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "clamp(36px, 5vw, 64px)",
+          fontSize: "clamp(28px, 3.5vw, 48px)",
           fontWeight: 300,
-          color: "var(--fg)",
+          color: "var(--accent)",
           lineHeight: 1.05,
         }}>
           Outils & Langues
@@ -114,12 +117,12 @@ export default function Skills() {
         <div style={{ display: "flex", gap: "24px" }}>
           {languages.map(({ name, level }) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--fg)", opacity: 0.7 }}>
+              <span style={{ fontFamily: "var(--font-sans)", fontSize: "14px", color: "var(--fg)", opacity: 0.7 }}>
                 {name}
               </span>
               <span style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "9px",
+                fontSize: "10px",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 color: "var(--accent)",
@@ -142,10 +145,10 @@ export default function Skills() {
           <div key={category}>
             <p style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "9px",
-              letterSpacing: "0.28em",
+              fontSize: "13px",
+              letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--muted)",
+              color: "var(--fg)",
               paddingBottom: "12px",
               borderBottom: "1px solid var(--border)",
               marginBottom: "0",

@@ -18,6 +18,7 @@ const projects: ProjectOverlayData[] = [
     tools: ["Power BI", "DAX", "Power Query", "Excel", "MoSCoW", "Kaggle"],
     bgColor: "#0D0C0B",
     accentColor: "#8C6A3A",
+    bgImage: "/ibm-bg.jpg",
     screens: [
       {
         n: "02",
@@ -57,11 +58,14 @@ const projects: ProjectOverlayData[] = [
     title: "Mirakl SAV Agent",
     subtitle: "Hackathon Eugenia × Mirakl",
     category: "Hackathon · IA Agentique",
+    cardBgPosition: "center 40%",
     description:
       "Plateforme d'orchestration agentique pour déléguer l'intégralité du SAV marketplace à une IA autonome. Gestion des tickets, détection d'anomalies, validations humaines et dialogue avec l'agent Aria — conçu de A à Z sur Mirakl Connect en tant que chef de projet.",
     tools: ["N8N", "Supabase", "OpenAI", "TypeScript", "Mirakl Connect"],
     bgColor: "#090C18",
     accentColor: "#4F6BFF",
+    bgImage: "/mirakl-bg.jpg",
+    videoUrl: "/WhatsApp%20Video%202026-05-01%20at%207.28.36%20PM.mp4",
     screens: [
       {
         n: "02",
@@ -168,6 +172,11 @@ const projects: ProjectOverlayData[] = [
     tools: ["Python", "Streamlit", "Keepa API", "Pandas"],
     bgColor: "#0B0D0C",
     accentColor: "#2D7A4F",
+    confidential: true,
+    confidentialText: {
+      title: "Outil déployé en production. Code non public.",
+      body: "Cet outil de veille prix a été développé et déployé en production chez Edgard & Cooper. Il track en temps réel les variations de prix et ruptures (OOS) sur +750 SKUs sur 5 marchés Amazon. Par respect des accords de confidentialité, le code source et les captures ne sont pas publiés. La démarche et la méthodologie sont disponibles sur demande.",
+    },
     screens: [],
     stats: [
       { value: "750+",  label: "SKUs trackés" },
@@ -237,7 +246,7 @@ function ProjectCell({
         background: project.bgColor,
         backgroundImage: bgImage ? `url(${bgImage})` : undefined,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: project.cardBgPosition ?? "center",
         cursor: "pointer",
         overflow: "hidden",
         ...style,
@@ -391,7 +400,7 @@ export default function Projects() {
             fontFamily: "var(--font-serif)",
             fontSize: "clamp(36px, 5vw, 64px)",
             fontWeight: 300,
-            color: "var(--fg)",
+            color: "var(--accent)",
             lineHeight: 1.05,
             marginBottom: "64px",
             padding: "0 clamp(24px, 8vw, 120px)",

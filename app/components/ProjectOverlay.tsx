@@ -24,10 +24,13 @@ export interface ProjectOverlayData {
   bgColor: string;
   accentColor: string;
   bgImage?: string;
+  cardBgPosition?: string;
+  videoUrl?: string;
   screens: ScreenPanel[];
   stats: { value: string; label: string }[];
   githubUrl?: string;
   confidential?: boolean;
+  confidentialText?: { title: string; body: string };
 }
 
 const PANEL_PADDING = "clamp(48px, 8vw, 120px)";
@@ -134,6 +137,40 @@ function PanelScreen({ panel, accentColor, index }: { panel: ScreenPanel; accent
   );
 }
 
+function PanelVideo({ videoUrl, accentColor }: { videoUrl: string; accentColor: string }) {
+  return (
+    <div style={{
+      width: "100vw", height: "100vh", flexShrink: 0,
+      display: "flex", alignItems: "center",
+      paddingLeft: PANEL_PADDING, paddingRight: PANEL_PADDING,
+    }}>
+      <div style={{ width: "100%", maxWidth: "1100px" }}>
+        <p style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "17px",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: accentColor,
+          marginBottom: "24px",
+        }}>
+          01 · Démo
+        </p>
+        <video
+          src={videoUrl}
+          controls
+          style={{
+            width: "100%",
+            height: "68vh",
+            objectFit: "contain",
+            border: `1px solid ${accentColor}33`,
+            background: "#000",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
 function PanelConfidential({ data }: { data: ProjectOverlayData }) {
   return (
     <div style={{
@@ -175,7 +212,7 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
             lineHeight: 1.3,
             marginBottom: "24px",
           }}>
-            Mission réelle. Données sensibles non divulgables.
+            {data.confidentialText?.title ?? "Mission réelle. Données sensibles non divulgables."}
           </p>
           <p style={{
             fontFamily: "var(--font-sans)",
@@ -183,10 +220,7 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
             color: "rgba(250,247,242,0.45)",
             lineHeight: 1.8,
           }}>
-            Ce dashboard exploite des données propriétaires d'Edgard & Cooper sur Amazon EU :
-            disponibilité produit, variations de prix et ownership Buy Box.
-            Par respect des engagements de confidentialité, les visuels ne sont pas publiés.
-            La démarche, les livrables et la méthodologie sont disponibles sur demande.
+            {data.confidentialText?.body ?? "Ce dashboard exploite des données propriétaires d'Edgard & Cooper sur Amazon EU : disponibilité produit, variations de prix et ownership Buy Box. Par respect des engagements de confidentialité, les visuels ne sont pas publiés. La démarche, les livrables et la méthodologie sont disponibles sur demande."}
           </p>
         </div>
         <p style={{
@@ -415,14 +449,14 @@ export default function ProjectOverlay({ data, onClose }: Props) {
           fontSize: "15px",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "rgba(250,247,242,0.35)",
+          color: "#fff",
           background: "none",
           border: "none",
           cursor: "pointer",
           transition: "color 0.2s",
         }}
         onMouseEnter={e => (e.currentTarget.style.color = data.accentColor)}
-        onMouseLeave={e => (e.currentTarget.style.color = "rgba(250,247,242,0.35)")}
+        onMouseLeave={e => (e.currentTarget.style.color = "#fff")}
       >
         ← Retour
       </button>
@@ -442,6 +476,7 @@ export default function ProjectOverlay({ data, onClose }: Props) {
       {/* Track */}
       <div ref={trackRef} style={{ display: "flex", height: "100%", willChange: "transform" }}>
         <PanelIntro data={data} />
+        {data.videoUrl && <PanelVideo videoUrl={data.videoUrl} accentColor={data.accentColor} />}
         {data.confidential ? (
           <PanelConfidential data={data} />
         ) : (

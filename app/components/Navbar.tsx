@@ -50,10 +50,10 @@ export default function Navbar() {
         display: "grid",
         gridTemplateColumns: "1fr auto 1fr",
         alignItems: "center",
-        background: scrolled ? "rgba(250,247,242,0.94)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
-        transition: "background 0.3s, border-color 0.3s",
+        background: scrolled ? "rgba(232, 224, 213, 0.97)" : "transparent",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "none",
+        transition: "background 0.3s, border-color 0.3s, backdrop-filter 0.3s",
       }}
     >
       {/* Left: name */}
@@ -61,15 +61,15 @@ export default function Navbar() {
         href="/"
         style={{
           fontFamily: "var(--font-serif)",
-          fontSize: "17px",
+          fontSize: "22px",
           fontWeight: 400,
           fontStyle: "italic",
-          color: "var(--fg)",
+          color: "#6B1F1F",
           textDecoration: "none",
           justifySelf: "start",
         }}
       >
-        Joffray DeAlberto
+        Business · Data · IA
       </Link>
 
       {/* Center: nav links */}
@@ -85,15 +85,15 @@ export default function Navbar() {
                 fontSize: "22px",
                 letterSpacing: "0",
                 textTransform: "uppercase",
-                fontWeight: active ? 700 : 400,
-                color: "var(--fg)",
-                opacity: active ? 1 : 0.38,
+                fontWeight: 700,
+                color: active ? "#fff" : "#6B1F1F",
+                opacity: 1,
                 textDecoration: "none",
                 padding: "0 10px",
                 transition: "color 0.4s ease, opacity 0.2s",
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = active ? "1" : "0.5")}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
               {label}
             </Link>
@@ -107,9 +107,9 @@ export default function Navbar() {
           href="https://www.linkedin.com/in/joffray-dealberto/"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: "var(--fg)", opacity: 0.45, transition: "opacity 0.2s" }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-          onMouseLeave={e => (e.currentTarget.style.opacity = "0.45")}
+          style={{ color: "#6B1F1F", opacity: 1, transition: "opacity 0.2s" }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
           aria-label="LinkedIn"
         >
           <IconLinkedIn />
@@ -118,9 +118,9 @@ export default function Navbar() {
           href="https://github.com/JoffrayDA"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: "var(--fg)", opacity: 0.45, transition: "opacity 0.2s" }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-          onMouseLeave={e => (e.currentTarget.style.opacity = "0.45")}
+          style={{ color: "#6B1F1F", opacity: 1, transition: "opacity 0.2s" }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+          onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
           aria-label="GitHub"
         >
           <IconGitHub />

@@ -18,12 +18,12 @@ export default function Hero() {
   return (
     <section
       style={{
-        minHeight: "calc(100vh - 72px)",
+        minHeight: "100vh",
         background: "#E8E0D5",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "clamp(20px, 3.5vw, 48px)",
+        padding: "calc(72px + clamp(20px, 3.5vw, 48px)) clamp(20px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px)",
       }}
     >
       {/* Cadre principal */}
@@ -57,7 +57,7 @@ export default function Hero() {
               letterSpacing: "-0.02em",
               whiteSpace: "nowrap",
               textAlign: "center",
-              color: "var(--fg)",
+              color: "var(--accent)",
             }}
           >
             Joffray DeAlberto
@@ -84,7 +84,7 @@ export default function Hero() {
               textDecoration: "none",
               borderRadius: "14px",
               overflow: "hidden",
-              border: "1px solid #e8e2da",
+              border: "none",
               alignSelf: "flex-end",
               height: "clamp(240px, 34vh, 380px)",
             }}
@@ -99,9 +99,9 @@ export default function Hero() {
                 fontFamily: "var(--font-nav)",
                 fontSize: "15px",
                 fontWeight: 500,
-                letterSpacing: "0.06em",
+                letterSpacing: "0.02em",
                 textTransform: "uppercase",
-                color: "#000",
+                color: "var(--accent)",
                 opacity: 1,
               }}
             >
@@ -109,7 +109,7 @@ export default function Hero() {
             </span>
             {/* Photo portrait plein cadre */}
             <img
-              src="/joffray.jpg"
+              src="/joffray2.png"
               alt="Joffray DeAlberto"
               style={{
                 position: "absolute",
@@ -117,7 +117,7 @@ export default function Hero() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center 28%",
+                objectPosition: "center top",
                 display: "block",
               }}
             />
