@@ -52,7 +52,8 @@
       "PowerShell(Invoke-WebRequest -Uri \"https://images.unsplash.com/photo-1762330467475-a565d04e1808?fm=jpg&q=80&w=1600&auto=format&fit=crop\" -OutFile \"C:\\\\Users\\\\PC\\\\Desktop\\\\Dossier_Perso\\\\Github\\\\portfolio-pro\\\\public\\\\mirakl-bg.jpg\")",
       "PowerShell(Invoke-WebRequest -Uri \"https://images.unsplash.com/photo-1510717029971-27681a0e9da9?fm=jpg&q=80&w=1600&auto=format&fit=crop\" -OutFile \"C:\\\\Users\\\\PC\\\\Desktop\\\\Dossier_Perso\\\\Github\\\\portfolio-pro\\\\public\\\\mirakl-bg.jpg\")",
       "Bash(npm install *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

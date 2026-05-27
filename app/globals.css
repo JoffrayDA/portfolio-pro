@@ -54,7 +54,7 @@ html, body {
 .projects-visual-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 420px 300px;
+  grid-template-rows: 420px 300px 280px;
   gap: 2px;
   background: var(--border);
 }
@@ -70,7 +70,7 @@ html, body {
   }
   .projects-visual-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 240px);
+    grid-template-rows: repeat(4, 240px);
   }
   .projects-visual-grid > * {
     grid-column: auto !important;

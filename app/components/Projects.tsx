@@ -12,10 +12,10 @@ const projects: ProjectOverlayData[] = [
     id: "ibm-hr",
     title: "IBM HR Analytics",
     subtitle: "Mission BA complète — Attrition RH",
-    category: "Mission BA",
+    category: "Mission BA · Power BI",
     description:
       "Mission BA menée de A à Z sur le dataset IBM HR Analytics (Kaggle) : cadrage, backlog MoSCoW, dictionnaire de données, dashboard Power BI 4 pages, rapport de recommandations. Objectif : identifier les facteurs d'attrition et produire des recommandations décisionnelles pour une DRH fictive.",
-    tools: ["Power BI", "DAX", "Power Query", "Excel", "MoSCoW", "Kaggle"],
+    tools: ["Power BI", "DAX", "Power Query", "MoSCoW", "Kaggle"],
     bgColor: "#0D0C0B",
     accentColor: "#8C6A3A",
     bgImage: "/ibm-bg.jpg",
@@ -163,6 +163,57 @@ const projects: ProjectOverlayData[] = [
     githubUrl: "https://github.com/JoffrayDA/kobe-bryant-powerbi",
   },
   {
+    id: "olist",
+    title: "Olist E-Commerce",
+    subtitle: "Analyse SQL + Power BI · Brésil",
+    category: "SQL · Power BI · Data Analysis",
+    description:
+      "Analyse end-to-end du marché e-commerce brésilien : 100 000 commandes (2016–2018) explorées via DuckDB/SQL, puis visualisées dans un dashboard Power BI 5 pages. Réponses à 4 questions stratégiques : revenus, logistique, satisfaction client et concentration des vendeurs.",
+    tools: ["DuckDB", "SQL", "Power BI", "DAX", "Python"],
+    bgColor: "#090F0E",
+    accentColor: "#1A9B8C",
+    bgImage: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png",
+    screens: [
+      {
+        n: "02",
+        title: "Vue Générale",
+        src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/01_vue_generale.png",
+        description: "Snapshot exécutif : R$ 16,01M de revenus, 103 890 commandes, note moyenne 4,09/5, délai moyen 12,5 jours. Tableau de bord qui expose la tension centrale : solide satisfaction malgré les défis logistiques à l'échelle du Brésil.",
+      },
+      {
+        n: "03",
+        title: "Analyse des Revenus",
+        src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/02_revenue.png",
+        description: "Tendance mensuelle et variation MoM. Trajectoire de croissance claire avec un pic en novembre 2017 (Black Friday). L'accélération des volumes révèle un marketplace en pleine expansion.",
+      },
+      {
+        n: "04",
+        title: "Analyse Logistique",
+        src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png",
+        description: "Carte Brésil (gradient bleu → rouge) + états les plus lents. Le Nord/Nord-Est affiche 25–29 jours contre 12 jours au Sud-Est : un écart 2× qui révèle le goulot d'étranglement structurel d'Olist. En moyenne, Olist bat ses propres estimations de 12 jours.",
+      },
+      {
+        n: "05",
+        title: "Satisfaction Client",
+        src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/04_satisfaction.png",
+        description: "L'insight clé : les commandes livrées en 0–7 jours obtiennent 4,4/5 ; celles livrées en 30+ jours chutent à 2,5/5. Une perte de satisfaction de 43% directement liée à la logistique — vérifiée état par état.",
+      },
+      {
+        n: "06",
+        title: "Performance Vendeurs",
+        src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/05_sellers.png",
+        description: "Top 10 vendeurs par revenu + revenu moyen par état. São Paulo génère à lui seul 5× plus que le prochain état. Les 4 États du Sud-Est dominent structurellement le marketplace — et expliquent directement le problème logistique du Nord.",
+      },
+    ],
+    stats: [
+      { value: "R$ 16M",  label: "Revenus analysés" },
+      { value: "103K",    label: "Commandes (2016–2018)" },
+      { value: "2×",      label: "Écart délai Nord / Sud-Est" },
+      { value: "−43%",    label: "Satisfaction : livraison 30j+" },
+    ],
+    githubUrl: "https://github.com/JoffrayDA/olist-ecommerce-analysis",
+  },
+  {
     id: "price-tracker",
     title: "Amazon Price Tracker",
     subtitle: "Python · Keepa API · Streamlit",
@@ -207,15 +258,17 @@ const projects: ProjectOverlayData[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 // Grid placement: index → CSS grid position
 // Row 1 (420px): IBM (dominant left) | Mirakl (right)
-// Row 2 (300px): Kobe | Price Tracker | Edgard (equal thirds)
+// Row 2 (300px): Kobe (narrow) | Olist (wide — projet mis en avant)
+// Row 3 (280px): Price Tracker | Edgard (confidentiels, moitié-moitié)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const gridPlacements = [
   { gridColumn: "1 / 8",  gridRow: "1" },  // IBM (0) — dominant visual
   { gridColumn: "8 / 13", gridRow: "1" },  // Mirakl (1)
-  { gridColumn: "1 / 5",  gridRow: "2" },  // Kobe (2)
-  { gridColumn: "5 / 9",  gridRow: "2" },  // Price Tracker (3)
-  { gridColumn: "9 / 13", gridRow: "2" },  // Edgard (4)
+  { gridColumn: "1 / 7",  gridRow: "2" },  // Kobe (2) — half
+  { gridColumn: "7 / 13", gridRow: "2" },  // Olist (3) — half
+  { gridColumn: "1 / 7",  gridRow: "3" },  // Price Tracker (4) — confidentiel
+  { gridColumn: "7 / 13", gridRow: "3" },  // Edgard (5) — confidentiel
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
