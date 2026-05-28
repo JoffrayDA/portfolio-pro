@@ -2,74 +2,64 @@ const experiences = [
   {
     period: "Sept. 2024 – auj.",
     company: "Edgard & Cooper",
-    role: "Business Analyst E-Commerce · MSc alternance",
-    highlight:
-      "Contribution au pilotage du canal Amazon à 13,7M€ de sell-in (+26,2% vs 2024) sur 6 marchés européens (FR, UK, DE, IT, ES, NL). Mission BA complète sur le tracking des OOS et prix Amazon : cadrage, user stories, backlog MoSCoW et dashboard Power BI sur 750+ SKUs.",
+    role: "Business Analyst E-Commerce",
+    context: "MSc alternance",
+    highlight: "Canal Amazon 13,7M€ · 6 marchés EU · Dashboard Power BI 750+ SKUs · Mission BA tracking OOS & prix.",
   },
   {
-    period: "Sept. 2023 – Août 2024",
+    period: "2023 – 2024",
     company: "AMD Blue · Pluraskills",
-    role: "Business Developer · Conseil Data & IT",
-    highlight:
-      "AMD Blue (5 mois) · Cabinet conseil Data : prospection Grands Comptes, placement d'un consultant chez BPCE Solutions Informatiques. Pluraskills (7 mois) · Cabinet conseil IT : prospection multi-secteurs dans l'écosystème Data/IA.",
+    role: "Business Developer",
+    context: "Conseil Data & IT",
+    highlight: "Prospection Grands Comptes · Placement consultant chez BPCE Solutions Informatiques.",
   },
   {
-    period: "2015–2016 · 2018–2023",
-    company: "Point P · BHV Marais · Foot Locker · Ralph Lauren",
-    role: "Vente & Relation Client · B2B / Retail premium",
-    highlight:
-      "B2B grands comptes chez Point P : gestion de stock, logistique & approvisionnement BTP. Retail premium chez BHV, Foot Locker et Ralph Lauren.",
+    period: "2015 – 2023",
+    company: "Point P · BHV · Foot Locker · Ralph Lauren",
+    role: "Vente & Relation Client",
+    context: "B2B / Retail premium",
+    highlight: "Grands comptes B2B · Logistique & approvisionnement BTP · Retail premium multi-enseignes.",
   },
   {
     period: "2016 – 2018",
     company: "Australie",
     role: "Expérience internationale",
-    highlight:
-      "Matelot (1 an) · Superviseur backpackers internationaux (4 mois) · Construction (6 mois+). Management multiculturel, autonomie complète, contexte anglophone immersif.",
+    context: "Work & Travel",
+    highlight: "Matelot · Superviseur backpackers · Construction · Management multiculturel en anglais.",
   },
+];
+
+const formation = [
+  { degree: "MSc Business & Data · IA Applied to Business", school: "Eugenia School", period: "2024–2026" },
+  { degree: "Bachelor Commerce International", school: "Euridis Business School", period: "2023–2024" },
+  { degree: "BTS NDRC", school: "Stephenson Formation", period: "2021–2023" },
 ];
 
 export default function About() {
   return (
     <section
       id="a-propos"
-      style={{
-        padding: "120px clamp(24px, 8vw, 120px)",
-        borderBottom: "1px solid var(--border)",
-      }}
+      style={{ padding: "80px clamp(24px, 6vw, 96px) 80px" }}
     >
-      <h2
-        style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(36px, 5vw, 64px)",
-          fontWeight: 300,
-          color: "var(--accent)",
-          lineHeight: 1.05,
-          marginBottom: "64px",
-        }}
-      >
-        À propos
-      </h2>
-
+      {/* ── Top: 3 colonnes ── */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(40px, 8vw, 120px)",
+          gridTemplateColumns: "auto 1fr 1fr",
+          gap: "clamp(32px, 5vw, 80px)",
           alignItems: "start",
+          marginBottom: "56px",
         }}
       >
-        {/* Left — bio */}
-        <div>
-          {/* Photo */}
+        {/* Col 1 — Photo + identité */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <div
             style={{
-              width: "100%",
-              maxWidth: "360px",
-              marginBottom: "40px",
-              borderRadius: "16px",
+              width: "160px",
+              height: "200px",
+              borderRadius: "12px",
               overflow: "hidden",
-              aspectRatio: "3 / 4",
+              flexShrink: 0,
             }}
           >
             <img
@@ -81,22 +71,50 @@ export default function About() {
                 objectFit: "cover",
                 objectPosition: "center top",
                 display: "block",
-                filter: "grayscale(15%)",
               }}
             />
           </div>
+          <div>
+            <h1
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(20px, 2vw, 28px)",
+                fontWeight: 300,
+                color: "var(--fg)",
+                lineHeight: 1.1,
+                marginBottom: "6px",
+              }}
+            >
+              Joffray DeAlberto
+            </h1>
+            <p
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "var(--accent)",
+              }}
+            >
+              Business Analyst · Data & IA
+            </p>
+          </div>
+        </div>
 
+        {/* Col 2 — Bio + stats */}
+        <div style={{ paddingTop: "4px" }}>
           <h2
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(32px, 4vw, 54px)",
+              fontSize: "clamp(20px, 2.2vw, 32px)",
               fontWeight: 300,
-              lineHeight: 1.1,
               color: "var(--fg)",
-              marginBottom: "40px",
+              lineHeight: 1.3,
+              marginBottom: "20px",
             }}
           >
-            6 ans en vente B2B/B2C,<br />
+            6 ans en vente B2B/B2C,
+            <br />
             <span style={{ color: "var(--accent)", fontStyle: "italic" }}>
               pivoté vers la Data & l'IA.
             </span>
@@ -105,135 +123,189 @@ export default function About() {
           <p
             style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "16px",
-              lineHeight: 1.8,
+              fontSize: "14px",
+              lineHeight: 1.75,
               color: "var(--fg)",
-              opacity: 1,
-              marginBottom: "24px",
+              opacity: 0.85,
+              marginBottom: "28px",
             }}
           >
-            Point P, BHV, Foot Locker, Ralph Lauren : j'ai appris à comprendre vite
-            ce que veulent les clients, à prioriser ce qui génère de la valeur,
-            et à livrer sans attendre.
+            Profil hybride Business / Data : cadrage fonctionnel, dashboards Power BI
+            actionnables, agents IA agentiques. Aujourd'hui BA en alternance chez
+            Edgard & Cooper sur un canal Amazon à 13,7M€ sur 6 marchés européens.
           </p>
 
-          <p
+          <div
             style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "16px",
-              lineHeight: 1.8,
-              color: "var(--fg)",
-              opacity: 1,
-              marginBottom: "40px",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "16px",
             }}
           >
-            Aujourd'hui Business Analyst en alternance chez Edgard & Cooper,
-            je contribue à un canal Amazon à 13,7M€ sur 6 marchés européens.
-            Profil hybride Business / Data / IA : cadrage, dashboards Power BI actionnables,
-            agents IA agentiques.
-          </p>
-
-          {/* Formation */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {[
-              { degree: "MSc Business & Data · IA Applied to Business", school: "Eugenia School", period: "2024 – 2026 (en cours)" },
-              { degree: "Bachelor Commerce International", school: "Euridis Business School", period: "2023 – 2024" },
-              { degree: "BTS NDRC", school: "Stephenson Formation", period: "2021 – 2023" },
-            ].map(({ degree, school, period }) => (
-              <div key={school} style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "20px" }}>
-                <p style={{ fontFamily: "var(--font-serif)", fontSize: "17px", fontWeight: 400, color: "var(--fg)", marginBottom: "2px" }}>
-                  {degree}
+              { val: "6 ans",   label: "Expérience vente" },
+              { val: "13,7M€",  label: "Canal Amazon" },
+              { val: "6",       label: "Marchés EU" },
+            ].map(({ val, label }) => (
+              <div
+                key={label}
+                style={{ borderTop: "1px solid var(--border)", paddingTop: "12px" }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "clamp(18px, 1.8vw, 26px)",
+                    fontWeight: 300,
+                    color: "var(--accent)",
+                    lineHeight: 1,
+                  }}
+                >
+                  {val}
                 </p>
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--muted)" }}>
-                  {school} · {period}
+                <p
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--muted)",
+                    marginTop: "4px",
+                  }}
+                >
+                  {label}
                 </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right — expériences */}
-        <div>
+        {/* Col 3 — Formation */}
+        <div style={{ paddingTop: "4px" }}>
           <p
             style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(28px, 3.5vw, 48px)",
-              fontWeight: 300,
-              color: "var(--accent)",
-              lineHeight: 1.05,
-              marginBottom: "32px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              marginBottom: "22px",
             }}
           >
-            Expériences
+            Formation
           </p>
-
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {experiences.map(({ period, company, role, highlight }) => (
+          <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+            {formation.map(({ degree, school, period }) => (
               <div
-                key={company}
-                style={{
-                  padding: "24px 0",
-                  borderBottom: "1px solid var(--border)",
-                }}
+                key={school}
+                style={{ borderLeft: "2px solid var(--accent)", paddingLeft: "14px" }}
               >
-                <div
+                <p
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    marginBottom: "6px",
-                    gap: "16px",
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                    color: "var(--fg)",
+                    marginBottom: "3px",
                   }}
                 >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "17px",
-                      fontWeight: 500,
-                      color: "var(--fg)",
-                    }}
-                  >
-                    {company}
-                  </p>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "12px",
-                      color: "var(--muted)",
-                      whiteSpace: "nowrap",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {period}
-                  </span>
-                </div>
-
+                  {degree}
+                </p>
                 <p
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "var(--accent)",
-                    marginBottom: "8px",
+                    fontSize: "10px",
+                    color: "var(--muted)",
                   }}
                 >
-                  {role}
-                </p>
-
-                <p
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "15px",
-                    lineHeight: 1.75,
-                    color: "var(--fg)",
-                  }}
-                >
-                  {highlight}
+                  {school} · {period}
                 </p>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* ── Bottom: 4 cartes expériences ── */}
+      <div>
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "10px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--muted)",
+            marginBottom: "20px",
+          }}
+        >
+          Expériences
+        </p>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "2px",
+            background: "var(--border)",
+          }}
+        >
+          {experiences.map(({ period, company, role, highlight }) => (
+            <div
+              key={company}
+              style={{
+                background: "var(--bg)",
+                padding: "22px 18px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "7px",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "10px",
+                  letterSpacing: "0.12em",
+                  color: "var(--muted)",
+                  textTransform: "uppercase",
+                }}
+              >
+                {period}
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-serif)",
+                  fontSize: "15px",
+                  fontWeight: 400,
+                  color: "var(--fg)",
+                  lineHeight: 1.2,
+                }}
+              >
+                {company}
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "10px",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--accent)",
+                }}
+              >
+                {role}
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "13px",
+                  lineHeight: 1.6,
+                  color: "var(--fg)",
+                  opacity: 0.72,
+                  marginTop: "4px",
+                }}
+              >
+                {highlight}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

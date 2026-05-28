@@ -17,7 +17,7 @@ const projects: ProjectOverlayData[] = [
       "Mission BA menée de A à Z sur le dataset IBM HR Analytics (Kaggle) : cadrage, backlog MoSCoW, dictionnaire de données, dashboard Power BI 4 pages, rapport de recommandations. Objectif : identifier les facteurs d'attrition et produire des recommandations décisionnelles pour une DRH fictive.",
     tools: ["Power BI", "DAX", "Power Query", "MoSCoW", "Kaggle"],
     bgColor: "#0D0C0B",
-    accentColor: "#8C6A3A",
+    accentColor: "#D4A340",
     bgImage: "/ibm-bg.jpg",
     screens: [
       {
@@ -114,7 +114,7 @@ const projects: ProjectOverlayData[] = [
       "Analyse complète de la carrière de Kobe Bryant : 20 saisons, 1 346 matchs, 5 titres NBA. Un dashboard Power BI construit de A à Z, des données brutes aux insights visuels.",
     tools: ["Power BI", "DAX", "Power Query", "NBA API"],
     bgColor: "#0F0D0B",
-    accentColor: "#6B1F1F",
+    accentColor: "#C73232",
     bgImage: "/kobe.jpg",
     screens: [
       {
@@ -171,7 +171,7 @@ const projects: ProjectOverlayData[] = [
       "Analyse end-to-end du marché e-commerce brésilien : 100 000 commandes (2016–2018) explorées via DuckDB/SQL, puis visualisées dans un dashboard Power BI 5 pages. Réponses à 4 questions stratégiques : revenus, logistique, satisfaction client et concentration des vendeurs.",
     tools: ["DuckDB", "SQL", "Power BI", "DAX", "Python"],
     bgColor: "#090F0E",
-    accentColor: "#1A9B8C",
+    accentColor: "#1FC4A8",
     bgImage: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png",
     cardBgSize: "110%",
     cardBgPosition: "center 15%",

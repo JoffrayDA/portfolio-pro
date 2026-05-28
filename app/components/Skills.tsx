@@ -52,83 +52,60 @@ const languages = [
   { name: "Anglais",  level: "Bilingue" },
 ];
 
-const tierColor: Record<Tier, string> = {
-  Expert:        "var(--accent)",
-  Avancé:        "var(--accent)",
-  Intermédiaire: "var(--muted)",
+const tierStyle: Record<Tier, React.CSSProperties> = {
+  Expert:        { color: "var(--accent)", borderColor: "var(--accent)", opacity: 1 },
+  Avancé:        { color: "var(--accent)", borderColor: "var(--border)", opacity: 0.9 },
+  Intermédiaire: { color: "var(--muted)",  borderColor: "var(--border)", opacity: 0.75 },
 };
-
-function SkillRow({ name, tier, last }: { name: string; tier: Tier; last: boolean }) {
-  return (
-    <div style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "12px 0",
-      borderBottom: last ? "none" : "1px solid var(--border)",
-    }}>
-      <span style={{
-        fontFamily: "var(--font-sans)",
-        fontSize: "15px",
-        color: "var(--fg)",
-        opacity: 0.85,
-      }}>
-        {name}
-      </span>
-      <span style={{
-        fontFamily: "var(--font-mono)",
-        fontSize: "10px",
-        letterSpacing: "0.15em",
-        textTransform: "uppercase",
-        color: tierColor[tier],
-      }}>
-        {tier}
-      </span>
-    </div>
-  );
-}
 
 export default function Skills() {
   return (
     <section
       style={{
-        padding: "120px clamp(24px, 8vw, 120px)",
-        borderBottom: "1px solid var(--border)",
+        padding: "56px clamp(24px, 6vw, 96px) 80px",
+        borderTop: "1px solid var(--border)",
       }}
     >
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "baseline",
-        flexWrap: "wrap",
-        gap: "24px",
-        marginBottom: "64px",
-      }}>
-        <h2 style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(28px, 3.5vw, 48px)",
-          fontWeight: 300,
-          color: "var(--accent)",
-          lineHeight: 1.05,
-        }}>
+      {/* Header row */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          flexWrap: "wrap",
+          gap: "16px",
+          marginBottom: "32px",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "10px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "var(--muted)",
+          }}
+        >
           Outils & Langues
-        </h2>
+        </p>
 
-        <div style={{ display: "flex", gap: "24px" }}>
+        <div style={{ display: "flex", gap: "16px" }}>
           {languages.map(({ name, level }) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: "14px", color: "var(--fg)", opacity: 0.7 }}>
+              <span style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--fg)", opacity: 0.7 }}>
                 {name}
               </span>
-              <span style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "var(--accent)",
-                border: "1px solid var(--border)",
-                padding: "3px 8px",
-              }}>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "9px",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "var(--accent)",
+                  border: "1px solid var(--border)",
+                  padding: "2px 7px",
+                }}
+              >
                 {level}
               </span>
             </div>
@@ -136,33 +113,56 @@ export default function Skills() {
         </div>
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-        gap: "56px 80px",
-      }}>
+      {/* 4-col skill grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "2px",
+          background: "var(--border)",
+        }}
+      >
         {skillGroups.map(({ category, skills }) => (
-          <div key={category}>
-            <p style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "13px",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "var(--fg)",
-              paddingBottom: "12px",
-              borderBottom: "1px solid var(--border)",
-              marginBottom: "0",
-            }}>
+          <div
+            key={category}
+            style={{
+              background: "var(--bg)",
+              padding: "20px 18px",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "9px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                marginBottom: "14px",
+              }}
+            >
               {category}
             </p>
-            {skills.map((s, i) => (
-              <SkillRow
-                key={s.name}
-                name={s.name}
-                tier={s.tier}
-                last={i === skills.length - 1}
-              />
-            ))}
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+              {skills.map(({ name, tier }) => (
+                <span
+                  key={name}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "0.08em",
+                    padding: "4px 9px",
+                    border: `1px solid ${tierStyle[tier].borderColor}`,
+                    color: tierStyle[tier].color as string,
+                    opacity: tierStyle[tier].opacity as number,
+                    borderRadius: "2px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>

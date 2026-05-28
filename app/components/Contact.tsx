@@ -22,57 +22,58 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      style={{ padding: "120px clamp(24px, 8vw, 120px)" }}
+      style={{ padding: "56px clamp(24px, 6vw, 96px) 72px" }}
     >
-      <h2
+      {/* Header */}
+      <p
         style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "clamp(36px, 5vw, 64px)",
-          fontWeight: 300,
-          color: "var(--accent)",
-          lineHeight: 1.05,
-          marginBottom: "64px",
+          fontFamily: "var(--font-mono)",
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--muted)",
+          marginBottom: "32px",
         }}
       >
         Contact
-      </h2>
+      </p>
 
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(40px, 8vw, 120px)",
+          gap: "clamp(32px, 6vw, 96px)",
           alignItems: "start",
         }}
       >
         {/* Left */}
         <div>
-          <h3
+          <h2
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(22px, 2.5vw, 38px)",
+              fontSize: "clamp(24px, 3vw, 44px)",
               fontWeight: 300,
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               color: "var(--fg)",
-              marginBottom: "32px",
+              marginBottom: "20px",
             }}
           >
             On se parle ?
-          </h3>
+          </h2>
 
           <p
             style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "16px",
-              lineHeight: 1.8,
+              fontSize: "14px",
+              lineHeight: 1.75,
               color: "var(--fg)",
-              maxWidth: "380px",
-              marginBottom: "48px",
+              opacity: 0.75,
+              maxWidth: "360px",
+              marginBottom: "28px",
             }}
           >
             En recherche d'un CDI en tant que BA ou Chef de projet Data/IA pour septembre 2026.
-            Si le poste est stimulant, je suis partant.
-            Disponible pour un échange ou un café pour en discuter.
+            Disponible pour un échange ou un café.
           </p>
 
           <div
@@ -82,17 +83,17 @@ export default function Contact() {
               gap: "10px",
               border: "1px solid var(--border)",
               borderRadius: "40px",
-              padding: "10px 18px",
+              padding: "8px 16px",
             }}
           >
-            <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--fg)" }}>
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0 }} />
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--fg)" }}>
               Disponible · CDI sept. 2026
             </span>
           </div>
         </div>
 
-        {/* Right — liens + CTA */}
+        {/* Right */}
         <div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {links.map(({ label, value, href }) => (
@@ -105,7 +106,7 @@ export default function Contact() {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "20px 0",
+                  padding: "16px 0",
                   borderBottom: "1px solid var(--border)",
                   textDecoration: "none",
                   gap: "24px",
@@ -117,30 +118,30 @@ export default function Contact() {
                   (e.currentTarget.querySelector(".link-value") as HTMLElement).style.color = "var(--fg)";
                 }}
               >
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "16px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)", flexShrink: 0 }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)", flexShrink: 0 }}>
                   {label}
                 </span>
-                <span className="link-value" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(14px, 1.6vw, 20px)", fontWeight: 300, color: "var(--fg)", transition: "color 0.2s" }}>
+                <span className="link-value" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(13px, 1.4vw, 18px)", fontWeight: 300, color: "var(--fg)", transition: "color 0.2s" }}>
                   {value}
                 </span>
               </a>
             ))}
           </div>
 
-          <div style={{ marginTop: "40px" }}>
+          <div style={{ marginTop: "28px" }}>
             <a
               href="mailto:joffray.dealberto@gmail.com"
               style={{
                 display: "inline-block",
                 fontFamily: "var(--font-mono)",
-                fontSize: "12px",
+                fontSize: "11px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 color: "#fff",
                 background: "var(--accent)",
-                padding: "18px 36px",
+                padding: "14px 28px",
                 textDecoration: "none",
-                borderRadius: "4px",
+                borderRadius: "3px",
                 transition: "opacity 0.2s",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
