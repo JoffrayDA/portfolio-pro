@@ -11,7 +11,7 @@ const projects: ProjectOverlayData[] = [
   {
     id: "ibm-hr",
     title: "IBM HR Analytics",
-    subtitle: "Mission BA complète — Attrition RH",
+    subtitle: "Mission BA complète : Attrition RH",
     category: "Mission BA · Power BI",
     description:
       "Mission BA menée de A à Z sur le dataset IBM HR Analytics (Kaggle) : cadrage, backlog MoSCoW, dictionnaire de données, dashboard Power BI 4 pages, rapport de recommandations. Objectif : identifier les facteurs d'attrition et produire des recommandations décisionnelles pour une DRH fictive.",
@@ -30,7 +30,7 @@ const projects: ProjectOverlayData[] = [
         n: "03",
         title: "Profil & Département",
         src: "/ibm-02-profil-dept.png",
-        description: "Sales Representative : 39% de départs — poste le plus vulnérable. Les juniors (niveau 1) quittent 3× plus que les seniors (niveau 5). Pic de départs dans les 2 premières années.",
+        description: "Sales Representative : 39% de départs, poste le plus vulnérable. Les juniors (niveau 1) quittent 3× plus que les seniors (niveau 5). Pic de départs dans les 2 premières années.",
       },
       {
         n: "04",
@@ -60,7 +60,7 @@ const projects: ProjectOverlayData[] = [
     category: "Hackathon · IA Agentique",
     cardBgPosition: "center 40%",
     description:
-      "Plateforme d'orchestration agentique pour déléguer l'intégralité du SAV marketplace à une IA autonome. Gestion des tickets, détection d'anomalies, validations humaines et dialogue avec l'agent Aria — conçu de A à Z sur Mirakl Connect en tant que chef de projet.",
+      "Plateforme d'orchestration agentique pour déléguer l'intégralité du SAV marketplace à une IA autonome. Gestion des tickets, détection d'anomalies, validations humaines et dialogue avec l'agent Aria, conçu de A à Z sur Mirakl Connect en tant que chef de projet.",
     tools: ["N8N", "Supabase", "OpenAI", "TypeScript", "Mirakl Connect"],
     bgColor: "#090C18",
     accentColor: "#4F6BFF",
@@ -173,6 +173,8 @@ const projects: ProjectOverlayData[] = [
     bgColor: "#090F0E",
     accentColor: "#1A9B8C",
     bgImage: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png",
+    cardBgSize: "110%",
+    cardBgPosition: "center 15%",
     screens: [
       {
         n: "02",
@@ -196,13 +198,13 @@ const projects: ProjectOverlayData[] = [
         n: "05",
         title: "Satisfaction Client",
         src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/04_satisfaction.png",
-        description: "L'insight clé : les commandes livrées en 0–7 jours obtiennent 4,4/5 ; celles livrées en 30+ jours chutent à 2,5/5. Une perte de satisfaction de 43% directement liée à la logistique — vérifiée état par état.",
+        description: "L'insight clé : les commandes livrées en 0–7 jours obtiennent 4,4/5 ; celles livrées en 30+ jours chutent à 2,5/5. Une perte de satisfaction de 43% directement liée à la logistique, vérifiée état par état.",
       },
       {
         n: "06",
         title: "Performance Vendeurs",
         src: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/05_sellers.png",
-        description: "Top 10 vendeurs par revenu + revenu moyen par état. São Paulo génère à lui seul 5× plus que le prochain état. Les 4 États du Sud-Est dominent structurellement le marketplace — et expliquent directement le problème logistique du Nord.",
+        description: "Top 10 vendeurs par revenu + revenu moyen par état. São Paulo génère à lui seul 5× plus que le prochain état. Les 4 États du Sud-Est dominent structurellement le marketplace et expliquent directement le problème logistique du Nord.",
       },
     ],
     stats: [
@@ -258,15 +260,15 @@ const projects: ProjectOverlayData[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 // Grid placement: index → CSS grid position
 // Row 1 (420px): IBM (dominant left) | Mirakl (right)
-// Row 2 (300px): Kobe (narrow) | Olist (wide — projet mis en avant)
+// Row 2 (300px): Kobe (5col narrow) | Olist (7col dominant, symétrique IBM)
 // Row 3 (280px): Price Tracker | Edgard (confidentiels, moitié-moitié)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const gridPlacements = [
   { gridColumn: "1 / 8",  gridRow: "1" },  // IBM (0) — dominant visual
   { gridColumn: "8 / 13", gridRow: "1" },  // Mirakl (1)
-  { gridColumn: "1 / 7",  gridRow: "2" },  // Kobe (2) — half
-  { gridColumn: "7 / 13", gridRow: "2" },  // Olist (3) — half
+  { gridColumn: "1 / 6",  gridRow: "2" },  // Kobe (2) — narrow
+  { gridColumn: "6 / 13", gridRow: "2" },  // Olist (3) — dominant
   { gridColumn: "1 / 7",  gridRow: "3" },  // Price Tracker (4) — confidentiel
   { gridColumn: "7 / 13", gridRow: "3" },  // Edgard (5) — confidentiel
 ];
@@ -298,7 +300,7 @@ function ProjectCell({
         position: "relative",
         background: project.bgColor,
         backgroundImage: bgImage ? `url(${bgImage})` : undefined,
-        backgroundSize: "cover",
+        backgroundSize: project.cardBgSize ?? "cover",
         backgroundPosition: project.cardBgPosition ?? "center",
         cursor: "pointer",
         overflow: "hidden",
@@ -462,16 +464,18 @@ export default function Projects() {
           Projets
         </h2>
 
-        <div className="projects-visual-grid">
-          {projects.map((project, i) => (
-            <ProjectCell
-              key={project.id}
-              project={project}
-              number={String(i + 1).padStart(2, "0")}
-              onClick={() => setActiveProject(project)}
-              style={gridPlacements[i]}
-            />
-          ))}
+        <div style={{ padding: "0 clamp(24px, 4vw, 64px)" }}>
+          <div className="projects-visual-grid">
+            {projects.map((project, i) => (
+              <ProjectCell
+                key={project.id}
+                project={project}
+                number={String(i + 1).padStart(2, "0")}
+                onClick={() => setActiveProject(project)}
+                style={gridPlacements[i]}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

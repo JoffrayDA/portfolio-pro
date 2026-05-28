@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const slides = [
+  { label: "SQL · Power BI",     title: "Olist E-Commerce",      bg: "#090F0E", image: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png", bgPos: "center 15%", bgSize: "110%" },
   { label: "Data Analyse",       title: "IBM HR Analytics",      bg: "#8C6A3A", image: "/ibm-01-vue-generale.png", bgPos: "top center", bgSize: "100% auto" },
   { label: "Agentic IA",         title: "Mirakl SAV Agent",      bg: "#4F6BFF", image: "/hackathon-01-login.png",  bgPos: "center", bgSize: "cover"   },
   { label: "Data Visualisation", title: "Mamba Mentality",       bg: "#6B1F1F", image: "/kobe.jpg",                bgPos: "center", bgSize: "cover"   },

@@ -25,6 +25,7 @@ export interface ProjectOverlayData {
   accentColor: string;
   bgImage?: string;
   cardBgPosition?: string;
+  cardBgSize?: string;
   videoUrl?: string;
   screens: ScreenPanel[];
   stats: { value: string; label: string }[];
