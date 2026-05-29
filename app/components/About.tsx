@@ -90,8 +90,8 @@ export default function About() {
             <p
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.15em",
+                fontSize: "12px",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "var(--accent)",
               }}
@@ -262,8 +262,8 @@ export default function About() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "10px",
-                  letterSpacing: "0.12em",
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
                   color: "var(--muted)",
                   textTransform: "uppercase",
                 }}
@@ -273,7 +273,7 @@ export default function About() {
               <p
                 style={{
                   fontFamily: "var(--font-serif)",
-                  fontSize: "15px",
+                  fontSize: "17px",
                   fontWeight: 400,
                   color: "var(--fg)",
                   lineHeight: 1.2,
@@ -284,8 +284,8 @@ export default function About() {
               <p
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "10px",
-                  letterSpacing: "0.1em",
+                  fontSize: "11px",
+                  letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
                 }}

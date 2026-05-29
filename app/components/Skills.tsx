@@ -80,8 +80,8 @@ export default function Skills() {
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "10px",
-            letterSpacing: "0.2em",
+            fontSize: "12px",
+            letterSpacing: "0.16em",
             textTransform: "uppercase",
             color: "var(--muted)",
           }}
@@ -98,8 +98,8 @@ export default function Skills() {
               <span
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "9px",
-                  letterSpacing: "0.15em",
+                  fontSize: "11px",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--accent)",
                   border: "1px solid var(--border)",
@@ -133,8 +133,8 @@ export default function Skills() {
             <p
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "9px",
-                letterSpacing: "0.2em",
+                fontSize: "11px",
+                letterSpacing: "0.16em",
                 textTransform: "uppercase",
                 color: "var(--muted)",
                 marginBottom: "14px",
@@ -149,14 +149,15 @@ export default function Skills() {
                   key={name}
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "10px",
-                    letterSpacing: "0.08em",
-                    padding: "4px 9px",
+                    fontSize: "11px",
+                    letterSpacing: "0.06em",
+                    padding: "5px 12px",
                     border: `1px solid ${tierStyle[tier].borderColor}`,
                     color: tierStyle[tier].color as string,
                     opacity: tierStyle[tier].opacity as number,
-                    borderRadius: "2px",
+                    borderRadius: "14px",
                     whiteSpace: "nowrap",
+                    background: tier === "Expert" ? "rgba(107,31,31,0.08)" : "transparent",
                   }}
                 >
                   {name}

@@ -387,8 +387,8 @@ function ProjectCell({
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "8px",
-            letterSpacing: "0.22em",
+            fontSize: "11px",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
             color: project.accentColor,
             marginBottom: "10px",
@@ -410,9 +410,9 @@ function ProjectCell({
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "9px",
-            letterSpacing: "0.1em",
-            color: "rgba(255,255,255,0.5)",
+            fontSize: "12px",
+            letterSpacing: "0.08em",
+            color: "rgba(255,255,255,0.6)",
             marginTop: "6px",
             maxHeight: hovered ? "20px" : "0",
             overflow: "hidden",

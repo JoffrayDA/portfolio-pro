@@ -72,16 +72,18 @@ function PanelIntro({ data }: { data: ProjectOverlayData }) {
         }}>
           {data.description}
         </p>
-        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {data.tools.map(tool => (
             <span key={tool} style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "13px",
-              letterSpacing: "0.15em",
+              fontSize: "11px",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "rgba(250,247,242,0.9)",
-              border: `1px solid ${data.accentColor}55`,
-              padding: "6px 14px",
+              color: data.accentColor,
+              background: `${data.accentColor}22`,
+              border: `1px solid ${data.accentColor}88`,
+              padding: "7px 16px",
+              borderRadius: "20px",
             }}>
               {tool}
             </span>

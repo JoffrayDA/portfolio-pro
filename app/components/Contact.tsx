@@ -28,8 +28,8 @@ export default function Contact() {
       <p
         style={{
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
-          letterSpacing: "0.2em",
+          fontSize: "12px",
+          letterSpacing: "0.16em",
           textTransform: "uppercase",
           color: "var(--muted)",
           marginBottom: "32px",
@@ -87,7 +87,7 @@ export default function Contact() {
             }}
           >
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0 }} />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--fg)" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--fg)" }}>
               Disponible · CDI sept. 2026
             </span>
           </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                   (e.currentTarget.querySelector(".link-value") as HTMLElement).style.color = "var(--fg)";
                 }}
               >
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)", flexShrink: 0 }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", flexShrink: 0 }}>
                   {label}
                 </span>
                 <span className="link-value" style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(13px, 1.4vw, 18px)", fontWeight: 300, color: "var(--fg)", transition: "color 0.2s" }}>
