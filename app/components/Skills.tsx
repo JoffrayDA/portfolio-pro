@@ -7,22 +7,22 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
     category: "Data & Analyse",
     skills: [
       { name: "Excel",            tier: "Expert" },
-      { name: "Power BI",         tier: "Avancé" },
+      { name: "Power BI",         tier: "Expert" },
       { name: "DAX",              tier: "Avancé" },
       { name: "Power Query",      tier: "Avancé" },
       { name: "SQL",              tier: "Intermédiaire" },
       { name: "Python",           tier: "Intermédiaire" },
       { name: "Google Analytics", tier: "Intermédiaire" },
-      { name: "Tableau",          tier: "Intermédiaire" },
+      { name: "Tableau",          tier: "Avancé" },
     ],
   },
   {
     category: "E-Commerce & Retail",
     skills: [
-      { name: "Amazon Vendor & Seller", tier: "Avancé" },
-      { name: "Jungle Scout",           tier: "Avancé" },
-      { name: "Catalogue management",   tier: "Avancé" },
-      { name: "Pricing",                tier: "Avancé" },
+      { name: "Amazon Vendor & Seller", tier: "Expert" },
+      { name: "Jungle Scout",           tier: "Expert" },
+      { name: "Catalogue management",   tier: "Expert" },
+      { name: "Pricing",                tier: "Expert" },
     ],
   },
   {
@@ -31,7 +31,7 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
       { name: "Agents IA", tier: "Avancé" },
       { name: "N8N",       tier: "Avancé" },
       { name: "Make",      tier: "Avancé" },
-      { name: "Dust",      tier: "Intermédiaire" },
+      { name: "Dust",      tier: "Avancé" },
     ],
   },
   {
@@ -42,6 +42,7 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
       { name: "Acceptance Criteria",     tier: "Avancé" },
       { name: "Recueil de besoin",       tier: "Avancé" },
       { name: "Reporting",               tier: "Avancé" },
+      { name: "PowerPoint",              tier: "Avancé" },
       { name: "GitHub",                  tier: "Avancé" },
     ],
   },
@@ -53,10 +54,16 @@ const languages = [
 ];
 
 const tierStyle: Record<Tier, React.CSSProperties> = {
-  Expert:        { color: "var(--accent)", borderColor: "var(--accent)", opacity: 1 },
-  Avancé:        { color: "var(--accent)", borderColor: "var(--border)", opacity: 0.9 },
-  Intermédiaire: { color: "var(--muted)",  borderColor: "var(--border)", opacity: 0.75 },
+  Expert:        { color: "#E8E0D5",       background: "var(--accent)",   border: "1px solid var(--accent)" },
+  Avancé:        { color: "var(--accent)", background: "transparent",     border: "1px solid var(--accent)" },
+  Intermédiaire: { color: "var(--muted)",  background: "transparent",     border: "1px solid var(--border)" },
 };
+
+const LEGEND: { tier: Tier; label: string }[] = [
+  { tier: "Expert",        label: "Expert" },
+  { tier: "Avancé",        label: "Avancé" },
+  { tier: "Intermédiaire", label: "Intermédiaire" },
+];
 
 export default function Skills() {
   return (
@@ -71,7 +78,7 @@ export default function Skills() {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "baseline",
+          alignItems: "center",
           flexWrap: "wrap",
           gap: "16px",
           marginBottom: "32px",
@@ -89,6 +96,27 @@ export default function Skills() {
           Outils & Langues
         </p>
 
+        {/* Legend */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          {LEGEND.map(({ tier, label }) => (
+            <span
+              key={tier}
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "0.08em",
+                padding: "3px 10px",
+                borderRadius: "14px",
+                whiteSpace: "nowrap",
+                ...tierStyle[tier],
+              }}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        {/* Languages */}
         <div style={{ display: "flex", gap: "16px" }}>
           {languages.map(({ name, level }) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -152,12 +180,9 @@ export default function Skills() {
                     fontSize: "11px",
                     letterSpacing: "0.06em",
                     padding: "5px 12px",
-                    border: `1px solid ${tierStyle[tier].borderColor}`,
-                    color: tierStyle[tier].color as string,
-                    opacity: tierStyle[tier].opacity as number,
                     borderRadius: "14px",
                     whiteSpace: "nowrap",
-                    background: tier === "Expert" ? "rgba(107,31,31,0.08)" : "transparent",
+                    ...tierStyle[tier],
                   }}
                 >
                   {name}
