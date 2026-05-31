@@ -69,7 +69,7 @@ export default function Skills() {
   return (
     <section
       style={{
-        padding: "56px clamp(24px, 6vw, 96px) 80px",
+        padding: "32px clamp(24px, 6vw, 96px) 56px",
         borderTop: "1px solid var(--border)",
       }}
     >
@@ -87,10 +87,10 @@ export default function Skills() {
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "12px",
+            fontSize: "13px",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "var(--muted)",
+            color: "var(--fg)",
           }}
         >
           Outils & Langues

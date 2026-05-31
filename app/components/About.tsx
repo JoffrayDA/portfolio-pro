@@ -184,10 +184,10 @@ export default function About() {
           <p
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              letterSpacing: "0.2em",
+              fontSize: "13px",
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "var(--muted)",
+              color: "var(--fg)",
               marginBottom: "22px",
             }}
           >
@@ -230,10 +230,10 @@ export default function About() {
         <p
           style={{
             fontFamily: "var(--font-mono)",
-            fontSize: "10px",
-            letterSpacing: "0.2em",
+            fontSize: "13px",
+            letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "var(--muted)",
+            color: "var(--fg)",
             marginBottom: "20px",
           }}
         >
