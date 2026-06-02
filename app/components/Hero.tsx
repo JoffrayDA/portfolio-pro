@@ -65,12 +65,15 @@ export default function Hero() {
           </h1>
           <p
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "clamp(10px, 1.1vw, 13px)",
-              letterSpacing: "0.08em",
+              fontFamily: "var(--font-serif)",
+              fontSize: "clamp(16px, 2.2vw, 28px)",
+              fontWeight: 300,
+              fontStyle: "italic",
               textAlign: "center",
-              color: "var(--muted)",
-              marginTop: "10px",
+              color: "var(--fg)",
+              opacity: 0.6,
+              marginTop: "8px",
+              letterSpacing: "0.01em",
             }}
           >
             Du terrain à la data.
