@@ -63,21 +63,6 @@ export default function Hero() {
           >
             Joffray DeAlberto
           </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "clamp(16px, 2.2vw, 28px)",
-              fontWeight: 300,
-              fontStyle: "italic",
-              textAlign: "center",
-              color: "var(--accent)",
-              opacity: 0.45,
-              marginTop: "8px",
-              letterSpacing: "0.01em",
-            }}
-          >
-            Du terrain à la data.
-          </p>
         </div>
 
         {/* Deux cartes */}
