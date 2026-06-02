@@ -70,8 +70,8 @@ export default function Hero() {
               fontWeight: 300,
               fontStyle: "italic",
               textAlign: "center",
-              color: "var(--fg)",
-              opacity: 0.6,
+              color: "var(--accent)",
+              opacity: 0.45,
               marginTop: "8px",
               letterSpacing: "0.01em",
             }}
