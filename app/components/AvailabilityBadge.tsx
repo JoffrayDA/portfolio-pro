@@ -69,7 +69,7 @@ export default function AvailabilityBadge() {
           color: "var(--muted)",
           lineHeight: 1,
         }}>
-          Disponible
+          En poste
         </span>
         <span style={{
           fontFamily: "var(--font-mono)",

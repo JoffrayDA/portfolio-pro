@@ -63,6 +63,18 @@ export default function Hero() {
           >
             Joffray DeAlberto
           </h1>
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "clamp(10px, 1.1vw, 13px)",
+              letterSpacing: "0.08em",
+              textAlign: "center",
+              color: "var(--muted)",
+              marginTop: "10px",
+            }}
+          >
+            6 ans vendeur terrain · pivoté data · BA sur un canal Amazon à 13,7M€
+          </p>
         </div>
 
         {/* Deux cartes */}
