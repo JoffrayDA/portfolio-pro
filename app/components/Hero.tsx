@@ -73,7 +73,7 @@ export default function Hero() {
               marginTop: "10px",
             }}
           >
-            6 ans vendeur terrain · pivoté data · BA sur un canal Amazon à 13,7M€
+            Du terrain à la data.
           </p>
         </div>
 
