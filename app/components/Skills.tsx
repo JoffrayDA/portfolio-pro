@@ -11,9 +11,9 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
       { name: "DAX",              tier: "Avancé" },
       { name: "Power Query",      tier: "Avancé" },
       { name: "SQL",              tier: "Intermédiaire" },
-      { name: "Python",           tier: "Intermédiaire" },
+      { name: "Python",           tier: "Avancé" },
       { name: "Google Analytics", tier: "Intermédiaire" },
-      { name: "Tableau",          tier: "Avancé" },
+      { name: "Tableau",          tier: "Intermédiaire" },
     ],
   },
   {
