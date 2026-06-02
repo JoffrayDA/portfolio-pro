@@ -74,16 +74,7 @@ export default function Skills() {
       }}
     >
       {/* Header row */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "16px",
-          marginBottom: "32px",
-        }}
-      >
+      <div className="skills-header">
         <p
           style={{
             fontFamily: "var(--font-mono)",
@@ -142,14 +133,7 @@ export default function Skills() {
       </div>
 
       {/* 4-col skill grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "2px",
-          background: "var(--border)",
-        }}
-      >
+      <div className="skills-grid">
         {skillGroups.map(({ category, skills }) => (
           <div
             key={category}
