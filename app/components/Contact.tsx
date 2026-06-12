@@ -39,9 +39,9 @@ export default function Contact() {
       </p>
 
       <div
+        className="contact-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           gap: "clamp(32px, 6vw, 96px)",
           alignItems: "start",
         }}

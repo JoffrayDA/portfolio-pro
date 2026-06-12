@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const slides = [
   { label: "SQL · Power BI",     title: "Olist E-Commerce",      bg: "#090F0E", image: "https://raw.githubusercontent.com/JoffrayDA/olist-ecommerce-analysis/main/dashboard/screenshots/03_delivery.png", bgPos: "center 15%", bgSize: "110%" },
@@ -14,6 +15,7 @@ const slides = [
 
 export default function Hero() {
   const [active, setActive] = useState(0);
+  const isMobile = useIsMobile();
   const slide = slides[active];
 
   return (
@@ -24,7 +26,9 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "calc(72px + clamp(20px, 3.5vw, 48px)) clamp(20px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px)",
+        padding: isMobile
+          ? "96px 16px 32px"
+          : "calc(72px + clamp(20px, 3.5vw, 48px)) clamp(20px, 3.5vw, 48px) clamp(20px, 3.5vw, 48px)",
       }}
     >
       {/* Cadre principal */}
@@ -32,9 +36,9 @@ export default function Hero() {
         style={{
           width: "100%",
           maxWidth: "920px",
-          height: "clamp(420px, 64vh, 630px)",
+          height: isMobile ? "auto" : "clamp(420px, 64vh, 630px)",
           background: "#fff",
-          borderRadius: "24px",
+          borderRadius: isMobile ? "18px" : "24px",
           boxShadow: "0 16px 80px rgba(0,0,0,0.18)",
           display: "flex",
           flexDirection: "column",
@@ -44,7 +48,9 @@ export default function Hero() {
         {/* Nom */}
         <div
           style={{
-            padding: "clamp(16px, 2.5vw, 36px) 44px clamp(10px, 1.2vw, 18px)",
+            padding: isMobile
+              ? "24px 20px 16px"
+              : "clamp(16px, 2.5vw, 36px) 44px clamp(10px, 1.2vw, 18px)",
             borderBottom: "none",
             flexShrink: 0,
           }}
@@ -52,11 +58,11 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(36px, 9.5vw, 108px)",
+              fontSize: isMobile ? "clamp(38px, 13vw, 64px)" : "clamp(36px, 9.5vw, 108px)",
               fontWeight: 300,
-              lineHeight: 0.9,
+              lineHeight: 0.95,
               letterSpacing: "-0.02em",
-              whiteSpace: "nowrap",
+              whiteSpace: isMobile ? "normal" : "nowrap",
               textAlign: "center",
               color: "var(--accent)",
             }}
@@ -69,10 +75,10 @@ export default function Hero() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "28fr 72fr",
-            flex: 1,
-            gap: "44px",
-            padding: "0 44px 44px",
+            gridTemplateColumns: isMobile ? "1fr" : "28fr 72fr",
+            flex: isMobile ? "none" : 1,
+            gap: isMobile ? "16px" : "44px",
+            padding: isMobile ? "0 16px 16px" : "0 44px 44px",
             overflow: "hidden",
           }}
         >
@@ -86,8 +92,8 @@ export default function Hero() {
               borderRadius: "14px",
               overflow: "hidden",
               border: "none",
-              alignSelf: "flex-end",
-              height: "clamp(240px, 34vh, 380px)",
+              alignSelf: isMobile ? "stretch" : "flex-end",
+              height: isMobile ? "200px" : "clamp(240px, 34vh, 380px)",
             }}
           >
             {/* Label overlay */}
@@ -118,7 +124,7 @@ export default function Hero() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center top",
+                objectPosition: isMobile ? "center 20%" : "center top",
                 display: "block",
               }}
             />
@@ -134,8 +140,8 @@ export default function Hero() {
               borderRadius: "14px",
               overflow: "hidden",
               border: "1px solid #e8e2da",
-              alignSelf: "flex-end",
-              height: "clamp(240px, 34vh, 380px)",
+              alignSelf: isMobile ? "stretch" : "flex-end",
+              height: isMobile ? "240px" : "clamp(240px, 34vh, 380px)",
             }}
           >
             {/* Fond coloré / image */}
@@ -169,7 +175,7 @@ export default function Hero() {
                 left: "20px",
                 zIndex: 2,
                 fontFamily: "var(--font-serif)",
-                fontSize: "clamp(18px, 2.2vw, 34px)",
+                fontSize: isMobile ? "26px" : "clamp(18px, 2.2vw, 34px)",
                 fontWeight: 300,
                 color: "#fff",
                 lineHeight: 1.1,
@@ -194,6 +200,7 @@ export default function Hero() {
                 <button
                   key={i}
                   onClick={e => { e.preventDefault(); setActive(i); }}
+                  aria-label={`Projet ${i + 1}`}
                   style={{
                     width: i === active ? "28px" : "10px",
                     height: "10px",

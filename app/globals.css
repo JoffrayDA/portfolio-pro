@@ -31,6 +31,7 @@ html, body {
   color: var(--fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Hero split layout */
@@ -76,6 +77,21 @@ html, body {
   margin-bottom: 32px;
 }
 
+/* About section grids */
+.about-top {
+  grid-template-columns: auto 1fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.about-experiences {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Contact section grid */
+.contact-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
 @media (max-width: 900px) {
   .hero-split {
     grid-template-columns: 1fr;
@@ -96,6 +112,15 @@ html, body {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .about-top {
+    grid-template-columns: 1fr;
+  }
+  .about-experiences {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -105,5 +130,12 @@ html, body {
   .skills-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .projects-visual-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 280px);
+  }
+  .about-experiences {
+    grid-template-columns: 1fr;
   }
 }

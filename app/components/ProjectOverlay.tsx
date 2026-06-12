@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -240,6 +241,7 @@ function PanelConfidential({ data }: { data: ProjectOverlayData }) {
 }
 
 function PanelStats({ data }: { data: ProjectOverlayData }) {
+  const isMobile = useIsMobile();
   const lastN = data.confidential
     ? "02"
     : String(data.screens.length + 1).padStart(2, "0");
@@ -263,7 +265,9 @@ function PanelStats({ data }: { data: ProjectOverlayData }) {
         </p>
         <div style={{
           display: "grid",
-          gridTemplateColumns: `repeat(${data.stats.length}, 1fr)`,
+          gridTemplateColumns: isMobile
+            ? "repeat(2, 1fr)"
+            : `repeat(${data.stats.length}, 1fr)`,
           gap: "1px",
           background: "rgba(250,247,242,0.08)",
           marginBottom: "64px",

@@ -43,11 +43,9 @@ export default function About() {
     >
       {/* ── Top: 3 colonnes ── */}
       <div
+        className="about-top"
         style={{
           display: "grid",
-          gridTemplateColumns: "auto 1fr 1fr",
-          gap: "clamp(32px, 5vw, 80px)",
-          alignItems: "start",
           marginBottom: "56px",
         }}
       >
@@ -241,9 +239,9 @@ export default function About() {
         </p>
 
         <div
+          className="about-experiences"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
             gap: "2px",
             background: "var(--border)",
           }}
