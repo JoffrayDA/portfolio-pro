@@ -29,10 +29,10 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
     category: "IA & Automatisation",
     skills: [
       { name: "Agents IA",          tier: "Avancé" },
-      { name: "N8N",                tier: "Avancé" },
+      { name: "N8N",                tier: "Expert" },
       { name: "Make",               tier: "Avancé" },
       { name: "Dust",               tier: "Avancé" },
-      { name: "Prompt Engineering", tier: "Avancé" },
+      { name: "Prompt Engineering", tier: "Expert" },
       { name: "OpenAI API",         tier: "Avancé" },
       { name: "LLM",                tier: "Avancé" },
       { name: "Streamlit",          tier: "Intermédiaire" },
