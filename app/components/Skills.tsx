@@ -118,10 +118,10 @@ export default function Skills() {
           <span
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
+              fontSize: "13px",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "var(--muted)",
+              color: "var(--fg)",
             }}
           >
             Langues
