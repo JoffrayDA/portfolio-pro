@@ -28,10 +28,16 @@ const skillGroups: { category: string; skills: { name: string; tier: Tier }[] }[
   {
     category: "IA & Automatisation",
     skills: [
-      { name: "Agents IA", tier: "Avancé" },
-      { name: "N8N",       tier: "Avancé" },
-      { name: "Make",      tier: "Avancé" },
-      { name: "Dust",      tier: "Avancé" },
+      { name: "Agents IA",          tier: "Avancé" },
+      { name: "N8N",                tier: "Avancé" },
+      { name: "Make",               tier: "Avancé" },
+      { name: "Dust",               tier: "Avancé" },
+      { name: "Prompt Engineering", tier: "Avancé" },
+      { name: "OpenAI API",         tier: "Avancé" },
+      { name: "LLM",                tier: "Avancé" },
+      { name: "Streamlit",          tier: "Intermédiaire" },
+      { name: "RAG",                tier: "Intermédiaire" },
+      { name: "Supabase",           tier: "Intermédiaire" },
     ],
   },
   {
@@ -84,7 +90,7 @@ export default function Skills() {
             color: "var(--fg)",
           }}
         >
-          Outils & Langues
+          Outils
         </p>
 
         {/* Legend */}
@@ -107,11 +113,22 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Languages */}
-        <div style={{ display: "flex", gap: "16px" }}>
+        {/* Languages — separate axis from skill tiers */}
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+            }}
+          >
+            Langues
+          </span>
           {languages.map(({ name, level }) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--fg)", opacity: 0.7 }}>
+              <span style={{ fontFamily: "var(--font-sans)", fontSize: "13px", color: "var(--fg)" }}>
                 {name}
               </span>
               <span
@@ -120,9 +137,11 @@ export default function Skills() {
                   fontSize: "11px",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "var(--accent)",
-                  border: "1px solid var(--border)",
-                  padding: "2px 7px",
+                  color: "#E8E0D5",
+                  background: "var(--accent)",
+                  borderRadius: "14px",
+                  padding: "3px 10px",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {level}

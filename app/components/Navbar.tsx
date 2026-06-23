@@ -76,6 +76,7 @@ export default function Navbar() {
           color: "#6B1F1F",
           textDecoration: "none",
           justifySelf: "start",
+          whiteSpace: "nowrap",
         }}
       >
         Business · Data · IA
